@@ -54,21 +54,12 @@ class Module implements AutoloaderProviderInterface
         $helperManager->get('headtitle')->set('TravelAround '. 'Клуб путешественников')->setSeparator(' - ')->setAutoEscape(false);
         
         $helperManager->get('headlink')
-                        ->appendStylesheet('//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800')
-                        ->appendStylesheet('/css/prettyPhoto.css')
-                        ->appendStylesheet('/css/camera.css')
                         ->appendStylesheet('/css/bootstrap.css')
-                        ->appendStylesheet('/css/theme.css')
-                        ->appendStylesheet('/css/skins/tango/skin.css')
                         ->appendStylesheet('/css/bootstrap-responsive.css');
         
-        $helperManager->get('headscript')->appendFile('//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
-                                         ->appendFile('/js/jquery.validate.min.js')
-                                         ->appendFile('/js/jquery.form.js')
-                                         ->appendFile('/js/date.js')
+        $helperManager->get('headscript')->appendFile('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
                                          ->appendFile('/js/bootstrap.min.js')
-                                         ->appendFile('/js/bootstrap-datepicker.min.js')
-                                         //->appendFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js')
+                                         ->appendFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js')
                                          ->appendFile('/js/admin.js');
     }
 }
