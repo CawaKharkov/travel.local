@@ -14,57 +14,13 @@
             /* Sticky footer styles
             -------------------------------------------------- */
 
-            html,
-            body {
-                height: 100%;
-                /* The html and body elements cannot have any padding or margin. */
-            }
-
-            /* Wrapper for page content to push down footer */
-            #wrap {
-                min-height: 100%;
-                height: auto !important;
-                height: 100%;
-                /* Negative indent footer by it's height */
-                margin: 0 auto -60px;
-            }
-
-            /* Set the fixed height of the footer here */
-            #push,
-            #footer {
-                height: 60px;
-            }
-            #footer {
-                background-color: #f5f5f5;
-            }
-
-            /* Lastly, apply responsive CSS fixes as necessary */
-            @media (max-width: 767px) {
-                #footer {
-                    margin-left: -20px;
-                    margin-right: -20px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                }
-            }
-
-
-
-            /* Custom page CSS
-            -------------------------------------------------- */
-            /* Not required for template or sticky footer method. */
-
-            .container {
-                width: 70%;
-
-            }
-         
-
+          
+            
         </style>
     </head>
     <body>
 
-        <?php echo $this->partial('/partials/main_menu') ?>                            
+        <?php echo $this->partial('/partials/mainMenu') ?>                            
         <!--//header-->    
         <!-- Part 1: Wrap all page content here -->
         <div id="wrap">
@@ -76,7 +32,7 @@
                     <h1>Travel club</h1>
                 </div>
                 <?php echo $this->partial('/partials/slider') ?>
-
+                <?php //echo $this->partial('/partials/sideMenu') ?>                            
                 <!--page_container-->
                 <?php echo $this->content; ?>
                 <!--//page_container-->
@@ -87,9 +43,8 @@
 
 
 
-
         <!--footer-->
-        <?php echo $this->partial('/partials/footer') ?>
+        <?php echo $this->partial('/partials/footer',array('title'=>'Travel club')) ?>
         <!--//footer-->    
         <?php
         echo $this->headScript();

@@ -55,7 +55,8 @@ class Module implements AutoloaderProviderInterface
         
         $helperManager->get('headlink')
                         ->appendStylesheet('/css/bootstrap.css')
-                        ->appendStylesheet('/css/bootstrap-responsive.css');
+                        ->appendStylesheet('/css/bootstrap-responsive.css')
+                        ->appendStylesheet('/css/main.css');
         
         $helperManager->get('headscript')->appendFile('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
                                          ->appendFile('/js/bootstrap.min.js')
