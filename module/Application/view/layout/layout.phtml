@@ -9,18 +9,14 @@
         <!--[if lt IE 9]>
                 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->    
-        <style type="text/css">
-
-            /* Sticky footer styles
-            -------------------------------------------------- */
-
-          
-            
-        </style>
     </head>
     <body>
 
-        <?php echo $this->partial('/partials/mainMenu') ?>                            
+        <?php
+        //echo $this->partial('/partials/main_menu')
+        $this->navigation('Navigation')->menu()->setPartial('partials/mainMenu.phtml');
+        echo $this->navigation('Navigation')->menu()->render();
+        ?>                       
         <!--//header-->    
         <!-- Part 1: Wrap all page content here -->
         <div id="wrap">
@@ -31,8 +27,8 @@
                 <div class="page-header">
                     <h1>Travel club</h1>
                 </div>
-                <?php echo $this->partial('/partials/slider') ?>
-                <?php //echo $this->partial('/partials/sideMenu') ?>                            
+               
+                <?php //echo $this->partial('/partials/sideMenu')  ?>                            
                 <!--page_container-->
                 <?php echo $this->content; ?>
                 <!--//page_container-->
@@ -42,17 +38,16 @@
         </div>
 
 
-
+        <?php
+        $this->navigation('Navigation')->menu()->setPartial('partials/breadcrumbs.phtml');
+        echo $this->navigation('Navigation')->menu()->render();
+        ?>
         <!--footer-->
-        <?php echo $this->partial('/partials/footer',array('title'=>'Travel club')) ?>
+        <?php echo $this->partial('/partials/footer', array('title' => 'Travel club')) ?>
         <!--//footer-->    
         <?php
         echo $this->headScript();
         ?>
-
-        <script type="text/javascript">
-
-        </script>
     </body>
 </html>
 

@@ -1,0 +1,19 @@
+<?php
+//$this->container->removePage(4);
+$this->container->removePage(5);
+$p = $this->container->getPages();
+
+//die();
+?>
+
+<ul class="breadcrumb">
+    <?php foreach($p as $page) : ?>
+    <li<?php echo $page->isActive() ? ' class="active"' : '' ?>>
+    <?php if (!$page->isActive()) : ?>
+        <?php echo $this->navigation()->menu()->htmlify($page) . PHP_EOL .'<span class="divider">/</span>'; ?>
+    <?php else : ?>
+        <p><?php echo $page->label ?><span class="divider">/</span></p>
+    <?php endif ?>
+    </li>
+    <?php endforeach ?>
+</ul>

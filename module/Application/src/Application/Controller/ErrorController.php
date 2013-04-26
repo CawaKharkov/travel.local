@@ -11,15 +11,13 @@ namespace Application\Controller;
 
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractController
+class ErrorController extends AbstractController
 {
     
     
-    public function indexAction()
+    public function accessAction()
     {
-        $this->acl();
         return new ViewModel();
     }
-    
 	
 }

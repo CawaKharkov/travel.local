@@ -26,6 +26,7 @@ class Module implements AutoloaderProviderInterface
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         $eventManager->attach('render', array($this, 'initView'));
+        $eventManager->attach('dispatch', array($this, 'initService'));
     }
 
     public function getConfig()
@@ -61,6 +62,35 @@ class Module implements AutoloaderProviderInterface
         $helperManager->get('headscript')->appendFile('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
                                          ->appendFile('/js/bootstrap.min.js')
                                          ->appendFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js')
+                                         ->appendFile('/js/main.js')
                                          ->appendFile('/js/admin.js');
     }
+    
+    public function getServiceConfig()
+    {
+          return array(
+            'factories' => array(
+                'AclService' => function($serviceManager) {
+                     $router = $serviceManager->get('router');
+                     $request = $serviceManager->get('request');
+                    return new Auth\Acl\AclService($router,$request);
+                },
+            )
+        );
+     }
+    
+     
+    public function initService(EventInterface $e)
+    {
+    }
+    
+    public function getViewHelperConfig()
+    {
+        return array(
+            'invokables' => array(
+                'loginHelper' => 'Application\View\Helper\LoginHelper'
+            ),
+        );
+    }
+ 
 }

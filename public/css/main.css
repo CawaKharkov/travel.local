@@ -6,8 +6,14 @@
 *{
     font-style: oblique;
 }
-body {
 
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+
+}
+body {
     font-stretch: semi-condensed;
     color:#7c8691;
 }
@@ -17,38 +23,39 @@ body {
     font-style:normal;
 }
 
-.breadcrumb {
-    font-size: 0.9em;
-
-    background: #a9db80; /* Old browsers */
-    background: -moz-linear-gradient(top,  #a9db80 0%, #96c56f 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a9db80), color-stop(100%,#96c56f)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #a9db80 0%,#96c56f 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #a9db80 0%,#96c56f 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #a9db80 0%,#96c56f 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #a9db80 0%,#96c56f 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=0 ); /* IE6-9 */
-
-    box-shadow: 1px 1px 1px;
-}
-
-.breadcrumb a{
-    color: black;
-}
-.breadcrumb a:active{
-    color: black;
-}
-
 .navbar ul li a{
     font-family: Lobster!important;
     font-style:normal;
 }
-
-.breadcrumb a:hover{
+.breadcrumb a{
     color: white;
+}
+.breadcrumb {
+    background: rgb(64,150,238);
+    background: -moz-linear-gradient(left,  rgba(64,150,238,1) 0%, rgba(96,171,248,1) 56%, rgba(122,188,255,1) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(64,150,238,1)), color-stop(56%,rgba(96,171,248,1)), color-stop(100%,rgba(122,188,255,1)));
+    background: -webkit-linear-gradient(left,  rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%);
+    background: -o-linear-gradient(left,  rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%);
+    background: -ms-linear-gradient(left,  rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%);
+    background: linear-gradient(to right,  rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#7abcff',GradientType=1 );
+
+}
+.breadcrumb a:hover{
+    color: black;
     text-decoration: none;
 }
+.breadcrumb p{
+    font-size: 1.2em;
+    color: black;
+}
+.breadcrumb{
 
+    font-family: Lobster!important;
+}
+.breadcrumb li a{
+    font-style: normal;
+}
 .sidebar-nav{
     position: absolute;
     top:20%;
@@ -60,7 +67,17 @@ body {
 }
 .carousel .carousel-caption{
     height:150px; 
-    padding-bottom: 0;
+    padding-bottom: 10px;
+
+}
+#mainCarousel{
+    -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow:    1px 2px 5px rgba(0, 0, 0, 0.75);
+    box-shadow:         1px 2px 5px rgba(0, 0, 0, 0.75);
+}
+#mainCarousel .carousel-caption {
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 .carousel h2{
     color: white;
@@ -101,7 +118,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 .container {
-    width: 70%;
+    width: 80%;
 
 }
 
