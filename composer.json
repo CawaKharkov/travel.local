@@ -8,9 +8,12 @@
     ],
     "homepage": "http://framework.zend.com/",
     "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "2.*@alpha",
+        "php": ">=5.4.13",
+        "zendframework/zendframework": "2.*",
         "doctrine/doctrine-orm-module" :"0.*",
-        "bjyoungblood/BjyProfiler": "dev-master"
+        "doctrine/migrations": "dev-master",
+        "Mockery/Mockery": "dev-master",
+        "zendframework/zftool": "dev-master",
+        "phpunit/phpunit": "3.7.*@dev"
     }
 }
