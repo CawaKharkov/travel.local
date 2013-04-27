@@ -1,5 +1,4 @@
 <?php
-echo  __DIR__ . '/../../module/caUser/src/caUser/Entity';
 return array(
     'doctrine' => array(
         'connection' => array(
@@ -38,7 +37,7 @@ return array(
             ),
             'orm_default' => array(
                 'drivers' => array(
-                    '/caUser/Entity' => 'Default_Driver'
+                    'caUser' => 'Default_Driver'
                 )
             ),
         ),
