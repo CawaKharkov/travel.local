@@ -66,18 +66,7 @@ class Module implements AutoloaderProviderInterface
                                          ->appendFile('/js/admin.js');
     }
     
-    public function getServiceConfig()
-    {
-          return array(
-            'factories' => array(
-                'AclService' => function($serviceManager) {
-                     $router = $serviceManager->get('router');
-                     $request = $serviceManager->get('request');
-                    return new Auth\Acl\AclService($router,$request);
-                },
-            )
-        );
-     }
+    
     
      
     public function initService(EventInterface $e)

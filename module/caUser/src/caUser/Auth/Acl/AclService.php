@@ -10,7 +10,7 @@
  *
  * @author Cawa
  */
-namespace Application\Auth\Acl;
+namespace caUser\Auth\Acl;
 
 use Zend\Mvc\Router\RouteStackInterface,
     Zend\Http\Request,
@@ -43,11 +43,19 @@ class AclService  extends Acl
         $this->addRole(new Role('admin'), 'user');
 
         $this->addResource('application'); // Application module
-
+        $this->addResource('causer'); // Application module
+        
         $this->allow('anonymous', 'application', 'index:index');
         $this->allow('anonymous', 'application', 'error:index');
         $this->deny('anonymous', 'application', 'test:index');
+        
+        $this->allow('anonymous', 'application', 'news:index');
+        $this->allow('anonymous', 'application', 'user:index');
 
+        $this->allow('anonymous', 'causer', 'usercontroller:index');
+        $this->allow('anonymous', 'causer', 'usercontroller:login');
+        
+        
 
         $moduleName = $routeMatch->getParam('__NAMESPACE__', 'application');
         $moduleName = strtolower(array_shift(explode('\\', $moduleName)));
@@ -56,7 +64,9 @@ class AclService  extends Acl
         $actionName = strtolower($routeMatch->getParam('action', 'not-found')); // get the action name 
         $controllerName = strtolower($routeMatch->getParam('controller', 'not-found'));     // get the controller name     
         
-        
+        //var_dump($moduleName);
+        //var_dump($controllerName);
+        //var_dump($actionName);
         if ($this->isAllowed($role,$moduleName,$controllerName.':'.$actionName))
         {
             $this->canAcces = true;

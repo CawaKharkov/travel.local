@@ -15,7 +15,6 @@ class TestController extends AbstractController
     
     public function indexAction()
     {
-        $this->acl();
         return new ViewModel();
     }
 	

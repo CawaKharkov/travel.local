@@ -16,6 +16,7 @@ return [
                 'options' => [
                     'route'    => '/login',
                     'defaults' => [
+                         '__NAMESPACE__' => 'caUser\Controller',
                         'controller' => 'UserController',
                         'action'     => 'login',
                     ],

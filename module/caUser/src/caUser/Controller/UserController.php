@@ -4,16 +4,15 @@
 */
 namespace caUser\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use caUser\Service\UserService as Service;
 
-class UserController extends AbstractActionController
+class UserController extends AbstractController
 {
     public function loginAction()
     {
         $service = new Service($this->getServiceLocator());
-        var_dump($service->authenticate('test', 'test'));
+       // var_dump($service->authenticate('test', 'test'));
     }
     public function cabinetAction()
     {

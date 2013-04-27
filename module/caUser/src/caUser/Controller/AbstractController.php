@@ -3,12 +3,12 @@
  * @author Cawa
  * 
  */
-namespace Application\Controller;
+namespace caUser\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
 class AbstractController extends AbstractActionController
 {
    
-    
+   
 }

@@ -48,7 +48,7 @@ return array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*/?',
                     ),
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Error',
+                        'controller' => 'Error',
                         'action' => 'index',
                     ),
                 ),
@@ -81,10 +81,14 @@ return array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\Error' => 'Application\Controller\ErrorController',
+            'Error' => 'Application\Controller\ErrorController',
             'Application\Controller\Test' => 'Application\Controller\TestController',
             'Application\Controller\News' => 'Application\Controller\NewsController',
             'Application\Controller\User' => 'Application\Controller\UserController',
         ),
+        'alias' =>[
+            'Error' => 'Application\Controller\ErrorController',
+        ]
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,

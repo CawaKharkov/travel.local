@@ -17,7 +17,7 @@ class IndexController extends AbstractController
     
     public function indexAction()
     {
-        $this->acl();
+        //$this->acl();
         return new ViewModel();
     }
     

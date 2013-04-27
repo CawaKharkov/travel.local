@@ -11,7 +11,7 @@
  * @author Cawa
  */
 
-namespace Application\View\Helper;
+namespace caUser\View\Helper;
  
 use Zend\View\Helper\Identity,
     Zend\Session\Container as SessionContainer,

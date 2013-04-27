@@ -19,4 +19,10 @@ class User extends Entity
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
 }
