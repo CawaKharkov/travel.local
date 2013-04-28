@@ -59,6 +59,10 @@ class UserService implements ServiceLocatorAwareInterface
         return $this->serviceLocator;
     }
 
+    /**
+     * Get User Repository
+     * @return \Doctrine\ORM\EntityRepository
+     */
     public function getRepository()
     {
         return $this->getEntityManager()->getRepository('\caUser\Entity\User');

@@ -11,16 +11,6 @@ namespace caUser;
 return [
     'router' => [
         'routes' => [
-            'cuUser' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route'    => '/causer[/:action]',
-                    'defaults' => [
-                        'controller' => 'UserController',
-                        'action'     => 'login',
-                    ],
-                ],
-            ],
             'Cabinet' => [
                 'type' => 'Segment',
                 'options' => [
@@ -28,6 +18,16 @@ return [
                     'defaults' => [
                         'controller' => 'UserController',
                         'action'     => 'cabinet',
+                    ],
+                ],
+            ],
+            'cuUser' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route'    => '/causer[/:action]',
+                    'defaults' => [
+                        'controller' => 'UserController',
+                        'action'     => 'login',
                     ],
                 ],
             ],
@@ -46,31 +46,4 @@ return [
             'ViewJsonStrategy',
         ],
     ],
-//    'doctrine' => array(
-//        'authentication' => array(
-//            'orm_default' => array(
-//                'object_manager' => 'Doctrine\ORM\EntityManager',
-//                'identity_class' => 'caUser\Entity\User',
-//                'identity_property' => 'email',
-//                'credential_property' => 'password',
-//                'credentialCallable' => function(\caUser\Framework\EntityDefault $user, $passwordGiven){
-//                    return \caUser\Service\UserService::checkCredencial($passwordGiven, $user->getPassword());
-//                },
-//            ),
-//        ),
-//        'driver' => array(
-//            'caUser_Driver' => array(
-//                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-//                'cache' => 'array',
-//                'paths' => array(
-//                    __DIR__ . '/../src/' .__NAMESPACE__. '/Entity'
-//                )
-//            ),
-//            'orm_default' => array(
-//                'drivers' => array(
-//                    __NAMESPACE__ . '\Entity' => 'caUser_Driver'
-//                )
-//            ),
-//        ),
-//    ),
 ];
