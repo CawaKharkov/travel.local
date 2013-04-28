@@ -29,15 +29,26 @@ class ServiceTest extends TestCase
      */
     public function testCanGetRepository()
     {
-        //$service = new \caUser\Service\UserService($this->sm);
-        //$repository = $this->getMockBuilder('\caUser\Repository\UserRepository')->disableOriginalConstructor()->getMock();
-        //$service = $this->getMockBuilder('\caUser\Repository\UserSerivce')->enableOriginalConstructor()->getMock();
-        //$service = $this->getMock('\caUser\Repository\UserSerivce',['getRepository'],[],'',false)->expects($this->once())->method('getRepository');
-        //var_dump($service);
-        //$service->expects($this->once())->method('getRepository');
+        $service = Mockery::mock('\caUser\Service\UserService');
+        $repository = Mockery::mock('\caUser\Repository\UserRepository');
+        $service->shouldReceive('getRepository')->andReturn($repository);
+        $this->assertEquals($repository, $service->getRepository());
+    }
 
-        //var_dump($service);
-        //$this->assertInstanceOf('\caUser\Repository\UserRepository', $service->getRepository());
+    /**
+     * Second test get User Repository
+     */
+    public function testCanGetRepositoryInService()
+    {
+        $repository = Mockery::mock('\caUser\Repository\UserRepository');
+        $this->assertInstanceOf('\caUser\Repository\UserRepository', $repository);
+    }
+
+    public function testGetCurrentUser()
+    {
+        $authenticationService = $this->sm->get('Zend\Authentication\AuthenticationService');
+        $authserv = $this->sm->get('doctrine.authenticationservice.orm_default');
+        $this->assertEquals($authenticationService, $authserv);
     }
 
 }
