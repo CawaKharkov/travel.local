@@ -30,9 +30,9 @@ class ServiceTest extends TestCase
     public function testCanGetRepository()
     {
         //$service = new \caUser\Service\UserService($this->sm);
-        $repository = $this->getMockBuilder('\caUser\Repository\UserRepository')->disableOriginalConstructor()->getMock();
+        //$repository = $this->getMockBuilder('\caUser\Repository\UserRepository')->disableOriginalConstructor()->getMock();
         //$service = $this->getMockBuilder('\caUser\Repository\UserSerivce')->enableOriginalConstructor()->getMock();
-        $service = $this->getMock('\caUser\Repository\UserSerivce',['getRepository'],[],'',false)->expects($this->once())->method('getRepository');
+        //$service = $this->getMock('\caUser\Repository\UserSerivce',['getRepository'],[],'',false)->expects($this->once())->method('getRepository');
         //var_dump($service);
         //$service->expects($this->once())->method('getRepository');
 
