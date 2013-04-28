@@ -15,9 +15,8 @@ namespace caUser\Auth\Acl;
 use Zend\Mvc\Router\RouteStackInterface,
     Zend\Http\Request,
     Zend\Session\Container as SessionContainer,
-    Zend\Permissions\Acl\Acl,
-    Zend\Permissions\Acl\Role\GenericRole as Role,
-    Zend\Permissions\Acl\Resource\GenericResource as Resource;
+    Zend\Permissions\Acl\Acl as Acl,
+    Zend\Permissions\Acl\Role\GenericRole as Role;
 
 class AclService  extends Acl
 {
