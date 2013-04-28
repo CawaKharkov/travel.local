@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use caUser\Framework\EntityDefault as Entity;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="\caUser\Repository\UserRepository")
  * @ORM\Table(name="user")
  */
 class User extends Entity
@@ -19,10 +19,6 @@ class User extends Entity
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
-    
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    protected $created;
+
+
 }

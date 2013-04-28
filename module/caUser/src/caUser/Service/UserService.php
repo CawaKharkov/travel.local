@@ -8,10 +8,15 @@ use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Crypt\Password\Bcrypt;
 
+/**
+ * Class UserService
+ * @package caUser\Service
+ */
 class UserService implements ServiceLocatorAwareInterface
 {
 
     private $serviceLocator;
+    private $em;
 
     /**
      *  Set service locator in counstruct
@@ -20,6 +25,18 @@ class UserService implements ServiceLocatorAwareInterface
     public function __construct(ServiceLocatorInterface $serviceLocator)
     {
         $this->serviceLocator = $serviceLocator;
+    }
+
+    /**
+     * Get EntityManager
+     * @return \Doctrine\ORM\EntityManager;
+     */
+    public function getEntityManager()
+    {
+        if (null === $this->em) {
+            $this->em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
+        }
+        return $this->em;
     }
 
     /**
@@ -42,10 +59,15 @@ class UserService implements ServiceLocatorAwareInterface
         return $this->serviceLocator;
     }
 
+    public function getRepository()
+    {
+        return $this->getEntityManager()->getRepository('\caUser\Entity\User');
+    }
+
     /**
      * Check password (bcript algoritm)
-     * @param $passwordGiven
-     * @param $hashpass
+     * @param string $passwordGiven
+     * @param string $hashpass
      * @return bool
      */
     static public function checkCredencial($passwordGiven, $hashpass)
@@ -56,8 +78,8 @@ class UserService implements ServiceLocatorAwareInterface
 
     /**
      * Auth User
-     * @param $login
-     * @param $password
+     * @param string $login
+     * @param string $password
      * @return bool
      */
     public function authenticate($login, $password)
@@ -88,5 +110,25 @@ class UserService implements ServiceLocatorAwareInterface
         $authenticationService = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
         return $authenticationService->getIdentity();
 
+    }
+
+    /**
+     * @param string $email
+     * @return \caUser\Entity\User
+     */
+    public function getUserbyEmail($email)
+    {
+        $user = $this->getEntityManager()->getRepository('\caUser\Entity\User')->findOneBy(['email' => $email]);
+        return $user;
+    }
+
+    /**
+     * Registration User
+     * @param \caUser\Entity\User $user
+     * @return \caUser\Entity\User
+     */
+    public function registrationUser(\caUser\Entity\User $user)
+    {
+        return $this->getRepository()->save($user);
     }
 }

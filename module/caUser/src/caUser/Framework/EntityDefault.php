@@ -6,10 +6,18 @@ namespace caUser\Framework;
 
 use caUser\Framework\EntityBase;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 class EntityDefault extends EntityBase
 {
-    protected $protectedProperties = ['id'];
+    protected $protectedProperties = ['id', 'created'];
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer", name="id")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
 
     /**
      * @ORM\Column(type="string", nullable=false)
@@ -25,4 +33,16 @@ class EntityDefault extends EntityBase
      * @ORM\Column(type="string", nullable=false)
      */
     public $username;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    public function __construct($data = null)
+    {
+        $this->created = new DateTime('now', new \DateTimeZone('UTC'));
+        return parent::__construct($data);
+
+    }
 }

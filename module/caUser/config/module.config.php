@@ -11,12 +11,11 @@ namespace caUser;
 return [
     'router' => [
         'routes' => [
-            'Login' => [
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+            'cuUser' => [
+                'type' => 'Segment',
                 'options' => [
-                    'route'    => '/login',
+                    'route'    => '/causer[/:action]',
                     'defaults' => [
-                         '__NAMESPACE__' => 'caUser\Controller',
                         'controller' => 'UserController',
                         'action'     => 'login',
                     ],

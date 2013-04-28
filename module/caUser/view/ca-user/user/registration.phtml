@@ -1,0 +1,14 @@
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('cuUser', array('action' => 'registration')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('email'));
+echo $this->formRow($form->get('username'));
+echo $this->formRow($form->get('password'));
+echo $this->formRow($form->get('repeatpassword'));
+echo $this->formRow($form->get('captcha'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
