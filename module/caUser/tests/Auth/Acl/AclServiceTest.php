@@ -22,11 +22,10 @@ use Zend\Mvc\Router\Http\TreeRouteStack as HttpRouter;
 class AclServiceTest extends TestCase
 {
     
-    protected $alc;
+    protected $acl;
     protected $request;
     protected $router;
     protected $event;
-    protected $routerMatch;
 
 
 
@@ -48,22 +47,20 @@ class AclServiceTest extends TestCase
         $this->event->setRouter($router);
         $this->router = $router;
         
-        $this->routeMatch = new RouteMatch(array('controller' => 'index'));
-        //var_dump($router);
+        
         $this->request->setMethod(Request::METHOD_GET);
         $this->request->setUri('/');
-        $this->alc = new AclService($this->router,  $this->request);
-        
-        
-     //   parent::setUp();
+        $this->acl = new AclService();
+       parent::setUp();
     }
     
     
     public function testCanAccess()
     {
-        $this->assertNotEmpty($this->routerMatch);
         $this->assertNotEmpty($this->request);
-        $this->assertEquals(0, 0);
+        $this->assertNotEmpty($this->router);
+        $this->assertNotEmpty($this->acl);
+        $this->assertTrue($this->acl->canAccess($this->router,  $this->request));
     }
 
 }
