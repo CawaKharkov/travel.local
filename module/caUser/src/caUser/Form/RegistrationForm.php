@@ -81,6 +81,7 @@ class RegistrationForm extends Form
             'attributes' => array(
                 'value' => 'Go',
                 'id' => 'submitbutton',
+                'class' => 'btn-primary'
             ),
         ));
     }

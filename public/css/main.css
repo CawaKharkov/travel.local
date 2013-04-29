@@ -122,6 +122,13 @@ body {
 
 }
 
+#RegistrationForm span {
+    padding-right:10px;
+}
+#RegistrationForm #submitbutton {
+    padding:5px;
+    border-radius: 3px;
+}
 
 #footer{
     color: #022c55;
