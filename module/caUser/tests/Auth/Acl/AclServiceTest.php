@@ -39,20 +39,20 @@ class AclServiceTest extends TestCase
         
         $this->request    = new Request();
         $this->event      = new MvcEvent();
-        
+
         $config = $serviceManager->get('Config');
         $routerConfig = isset($config['router']) ? $config['router'] : array();
         $router = HttpRouter::factory($routerConfig);
-        
+
         $this->event->setRouter($router);
-        
+
         //var_dump($router);
         $this->request->setMethod(Request::METHOD_GET);
         $this->request->setUri('/');
-        
+
         $this->alc = new AclService($router,  $this->request);
         
-     //   parent::setUp();
+        parent::setUp();
     }
     
     
