@@ -24,8 +24,9 @@ class AclServiceTest extends TestCase
     
     protected $alc;
     protected $request;
+    protected $router;
     protected $event;
-    
+    protected $routerMatch;
 
 
 
@@ -45,12 +46,14 @@ class AclServiceTest extends TestCase
         $router = HttpRouter::factory($routerConfig);
         
         $this->event->setRouter($router);
+        $this->router = $router;
         
+        $this->routeMatch = new RouteMatch(array('controller' => 'index'));
         //var_dump($router);
         $this->request->setMethod(Request::METHOD_GET);
         $this->request->setUri('/');
+        $this->alc = new AclService($this->router,  $this->request);
         
-        $this->alc = new AclService($router,  $this->request);
         
      //   parent::setUp();
     }
@@ -58,6 +61,8 @@ class AclServiceTest extends TestCase
     
     public function testCanAccess()
     {
+        $this->assertNotEmpty($this->routerMatch);
+        $this->assertNotEmpty($this->request);
         $this->assertEquals(0, 0);
     }
 

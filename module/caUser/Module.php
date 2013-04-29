@@ -73,8 +73,8 @@ class Module implements ServiceProviderInterface
         $sm = $application->getServiceManager();
         $router = $sm->get('router');
         $request = $sm->get('request');
-        $aclService = new Auth\Acl\AclService($router, $request);
-        if(!$aclService->canAcces){
+        $aclService = new Auth\Acl\AclService();
+        if(!$aclService->canAcces($router, $request)){
             
             $url = $router->assemble(array(), array('name' => 'error', ['action' => 'access'],));
             $response = $e->getResponse();

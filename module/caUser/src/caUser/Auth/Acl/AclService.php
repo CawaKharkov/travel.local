@@ -25,17 +25,18 @@ class AclService  extends Acl
     protected $sesscontainer;
 
 
-    public function __construct(RouteStackInterface $router, Request $request) 
+    public function __construct() 
     {
-        $routeMatch = $router->match($request);
-       
-        $this->canAccess($routeMatch);
+        
+        //$this->canAccess($routeMatch);
     }
     
-    protected function canAccess($routeMatch)
+    protected function canAccess(RouteStackInterface $router, Request $request)
     { 
+        $routeMatch = $router->match($request);
+       
          // set ACL
-         $this->canAcces = false;
+        $this->canAcces = false;
         $this->deny();
         $this->addRole(new Role('anonymous'));
         $this->addRole(new Role('user'), 'anonymous');
