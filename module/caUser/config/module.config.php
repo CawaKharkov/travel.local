@@ -16,7 +16,8 @@ return [
                 'options' => [
                     'route'    => '/cabinet[/:id]',
                     'defaults' => [
-                        'controller' => 'UserController',
+                        '__NAMESPACE__' => 'caUser',
+                        'controller' => 'User',
                         'action'     => 'cabinet',
                     ],
                 ],
@@ -26,7 +27,8 @@ return [
                 'options' => [
                     'route'    => '/causer[/:action]',
                     'defaults' => [
-                        'controller' => 'UserController',
+                        '__NAMESPACE__' => 'caUser',
+                        'controller' => 'User',
                         'action'     => 'login',
                     ],
                 ],
@@ -35,7 +37,7 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'UserController' => 'caUser\Controller\UserController',
+            'caUser\Controller\User' => 'caUser\Controller\UserController',
         ],
     ],
     'view_manager' => [

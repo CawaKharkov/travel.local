@@ -35,7 +35,7 @@ class AclService  extends Acl
         $this->addRole(new Role('admin'), 'user');
 
         $this->addResource('application'); // Application module
-        $this->addResource('causer'); // Application module
+        $this->addResource('caUser'); // Application module
         
         $this->allow('anonymous', 'application', 'index:index');
         $this->allow('anonymous', 'application', 'error:index');
@@ -46,6 +46,7 @@ class AclService  extends Acl
 
         $this->allow('anonymous', 'causer', 'usercontroller:index');
         $this->allow('anonymous', 'causer', 'usercontroller:login');
+        $this->allow('anonymous', 'causer', 'usercontroller:registration');
         
         
     }
