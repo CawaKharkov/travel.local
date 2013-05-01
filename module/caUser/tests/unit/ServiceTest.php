@@ -4,6 +4,7 @@
  */
 namespace caUserTests\Unit;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase as TestCase;
+use caUser\Service\UserService;
 use Mockery;
 
 /**
@@ -22,6 +23,12 @@ class ServiceTest extends TestCase
         $this->sm = $serviceManager = $this->getApplicationServiceLocator();
         $this->sm->setAllowOverride(true);
         parent::setUp();
+    }
+
+    public function testCanInstanceUserService()
+    {
+        $service = new UserService($this->sm);
+        $this->assertInstanceOf('caUser\Service\UserService', $service);
     }
 
     /**
@@ -49,6 +56,11 @@ class ServiceTest extends TestCase
         $authenticationService = $this->sm->get('Zend\Authentication\AuthenticationService');
         $authserv = $this->sm->get('doctrine.authenticationservice.orm_default');
         $this->assertEquals($authenticationService, $authserv);
+    }
+
+    public function testCheckCredencial()
+    {
+
     }
 
 }
