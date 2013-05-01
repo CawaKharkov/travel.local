@@ -3,8 +3,10 @@
  * namespace
  */
 namespace caUserTests\Unit;
+use Zend\Crypt\Password\Bcrypt;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase as TestCase;
 use caUser\Service\UserService;
+use caUser\Entity\User;
 use Mockery;
 
 /**
@@ -58,9 +60,25 @@ class ServiceTest extends TestCase
         $this->assertEquals($authenticationService, $authserv);
     }
 
+    /**
+     * Check credencial
+     * @return bool
+     */
     public function testCheckCredencial()
     {
+        $passwordGiven = "test";
+        $bcrypt = new Bcrypt();
+        $passwordHash = $bcrypt->create($passwordGiven);
+        $this->assertTrue($bcrypt->verify($passwordGiven, $passwordHash));
+    }
 
+    public function testRegistrationUser()
+    {
+       $user = new User();
+       $service = new UserService($this->sm);
+       $userSave = $service->registrationUser($user);
+       var_dump($userSave);
+       //$this->assertEquals($user, $userSave);
     }
 
 }

@@ -27,19 +27,5 @@ return array(
                 },
             ),
         ),
-        'driver' => array(
-            'Default_Driver' => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'array',
-                'paths' => array(
-                    __DIR__ . '/../../module/caUser/src/caUser/Entity'
-                )
-            ),
-            'orm_default' => array(
-                'drivers' => array(
-                    'caUser' => 'Default_Driver'
-                )
-            ),
-        ),
     ),
 );
