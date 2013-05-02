@@ -8,6 +8,7 @@ use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase as TestCase;
 use caUser\Service\UserService;
 use caUser\Entity\User;
 use Mockery;
+use caUserTest\Bootstrap;
 
 /**
  * Class ServiceTest
@@ -16,14 +17,16 @@ use Mockery;
 class ServiceTest extends TestCase
 {
     protected $sm;
+    protected $em;
 
     public function setUp()
     {
         $this->setApplicationConfig(
               require __DIR__ . '/../../../../config/application.config.php'
         );
-        $this->sm = $serviceManager = $this->getApplicationServiceLocator();
+        $this->sm = $this->getApplicationServiceLocator();
         $this->sm->setAllowOverride(true);
+        $this->em = Bootstrap::getSqlLiteEm();
         parent::setUp();
     }
 
@@ -74,11 +77,7 @@ class ServiceTest extends TestCase
 
     public function testRegistrationUser()
     {
-       $user = new User();
-       $service = new UserService($this->sm);
-       $userSave = $service->registrationUser($user);
-       var_dump($userSave);
-       //$this->assertEquals($user, $userSave);
+        $this->em->getRepository('\caUser\Entity\User')->findAll();
     }
 
 }

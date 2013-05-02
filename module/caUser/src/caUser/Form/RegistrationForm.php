@@ -7,6 +7,10 @@ use Zend\Form\Form;
 use Zend\Form\Element\Captcha;
 use Zend\Captcha\Image as CaptchaImage;
 
+/**
+ * Class RegistrationForm
+ * @package caUser\Form
+ */
 class RegistrationForm extends Form
 {
     public function __construct($name = null)

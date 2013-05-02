@@ -8,7 +8,9 @@ use Zend\Crypt\Password\Bcrypt;
 use Zend\View\Model\ViewModel;
 use caUser\Service\UserService as Service;
 use caUser\Form\RegistrationForm;
+use caUser\Form\LoginForm;
 use caUser\Form\RegistrationValidator;
+use caUser\Form\LoginValidator;
 use caUser\Entity\User;
 
 /**
@@ -17,17 +19,63 @@ use caUser\Entity\User;
  */
 class UserController extends AbstractController
 {
+    /**
+     * Login Action
+     * @redirect Cabinet
+     * @return ViewModel
+     */
     public function loginAction()
     {
         $service = new Service($this->getServiceLocator());
-        $service->getCurrentUser() ? $this->redirect()->toRoute('Cabinet') : "";
-       // var_dump($service->authenticate('test', 'test'));
+        $vm = new ViewModel();
+
+        if(!$service->getCurrentUser()){
+            $form = new LoginForm();
+            $request = $this->getRequest();
+            $form->get('submit')->setValue('Enter');
+
+            if($request->isPost()) {
+                $validator = new LoginValidator();
+                $form->setInputFilter($validator->getInputFilter());
+                $form->setData($request->getPost());
+
+                if ($form->isValid()) {
+                    $data = $form->getData();
+
+                    if(!$service->authenticate($data['email'], $data['password']) )
+                    {
+                        $error = [
+                            'password' => ['Invalid email or password']
+                        ];
+
+                        $form->setMessages($error);
+                    } else
+                    {
+                       return  $this->redirect()->toRoute('Cabinet');
+                    }
+                }
+            }
+
+            $vm->setVariable('form', $form);
+        } else {
+            return  $this->redirect()->toRoute('Cabinet');
+        }
+        return $vm;
     }
 
+    /**
+     * Cabinet action
+     * @return \Zend\Http\Response|ViewModel
+     */
     public function cabinetAction()
     {
         $service = new Service($this->getServiceLocator());
-        return new ViewModel(['user' => $service->getCurrentUser()]);
+        if ($service->getCurrentUser()) {
+            return new ViewModel(['user' => $service->getCurrentUser()]);
+        } else {
+            return $this->redirect()->toRoute('cuUser', ['action' => 'login']);
+        }
+
     }
 
     /**
@@ -79,5 +127,12 @@ class UserController extends AbstractController
         }
         $vm->setVariable('form', $form);
         return $vm;
+    }
+
+    public function exitAction()
+    {
+        $service = new Service($this->getServiceLocator());
+        $service->exitUser();
+
     }
 }

@@ -135,4 +135,17 @@ class UserService implements ServiceLocatorAwareInterface
     {
         return $this->getRepository()->save($user);
     }
+
+    /**
+     * Exit user
+     * @return mixed
+     */
+    public function exitUser()
+    {
+        $authService = $this->serviceLocator->get('Zend\Authentication\AuthenticationService');
+        $authService->getStorage()->clear();
+        $pluginManager = $this->getServiceLocator()->get('Zend\Mvc\Controller\PluginManager');
+        $redirectPlugin = $pluginManager->get('redirect');
+        return $redirectPlugin->toRoute('cuUser', ['action' => 'login']);
+    }
 }

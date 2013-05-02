@@ -6,6 +6,11 @@ use Zend\Loader\AutoloaderFactory;
 use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 use RuntimeException;
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 
 error_reporting(E_ALL | E_STRICT);
 chdir(__DIR__);
@@ -90,6 +95,29 @@ class Bootstrap
             $previousDir = $dir;
         }
         return $dir . '/' . $path;
+    }
+
+    static public function getSqlLiteEm() {
+        $paths = array(__DIR__ . '/../Entity/');
+        $isDevMode = true;
+
+        // the connection configuration
+        $dbParams = array(
+            'driver'   => 'pdo_sqlite',
+            'user'     => 'root',
+            'password' => 'pass',
+            'path'   => __DIR__ . '/../../../data/test.db',
+            'memory' => true,
+        );
+
+        $config = Setup::createConfiguration($isDevMode);
+        $driver = new AnnotationDriver(new AnnotationReader(), $paths);
+
+        // registering noop annotation autoloader - allow all annotations by default
+        AnnotationRegistry::registerLoader('class_exists');
+        $config->setMetadataDriverImpl($driver);
+        $em = EntityManager::create($dbParams, $config);
+        return $em;
     }
 }
 
