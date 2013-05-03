@@ -6,12 +6,15 @@ namespace caUser\Controller;
 
 use Zend\Crypt\Password\Bcrypt;
 use Zend\View\Model\ViewModel;
+use ZendOpenId\OpenId;
 use caUser\Service\UserService as Service;
 use caUser\Form\RegistrationForm;
 use caUser\Form\LoginForm;
 use caUser\Form\RegistrationValidator;
 use caUser\Form\LoginValidator;
 use caUser\Entity\User;
+use caUser\Form\RestorePasswordForm;
+use caUser\Form\RestorePasswordValidator;
 
 /**
  * Class UserController
@@ -134,5 +137,46 @@ class UserController extends AbstractController
         $service = new Service($this->getServiceLocator());
         $service->exitUser();
 
+    }
+
+    public function restorepasswordAction()
+    {
+        $vm = new ViewModel();
+        $form = new RestorePasswordForm();
+        $form->get('submit')->setValue('restore');
+        $request = $this->getRequest();
+
+        if($request->isPost())
+        {
+            $validator = new RestorePasswordValidator();
+            $form->setInputFilter($validator->getInputFilter());
+            $form->setData($request->getPost());
+            if($form->isValid())
+            {
+                $service = new Service($this->getServiceLocator());
+                try {
+                    $service->restorePassword($form->getData()['email']);
+                    $message = [
+                        'email' => ['New password send to your email ' . $form->getData()['email']]
+                    ];
+                    $form->setMessages($message);
+                } catch(\Exception $e)
+                {
+                    $message = [
+                        'email' => [$e->getMessage()]
+                    ];
+                    $form->setMessages($message);
+                }
+            } else
+
+            {
+                $message = [
+                    'email' => ['Invalid email or short chars']
+                ];
+                $form->setMessages($message);
+            }
+        }
+        $vm->setVariable('form', $form);
+        return $vm;
     }
 }

@@ -75,9 +75,13 @@ class ServiceTest extends TestCase
         $this->assertTrue($bcrypt->verify($passwordGiven, $passwordHash));
     }
 
-    public function testRegistrationUser()
+    public function testExitUser()
     {
-        $this->em->getRepository('\caUser\Entity\User')->findAll();
+        $authService = $this->sm->get('Zend\Authentication\AuthenticationService');
+        $this->assertNotEmpty($authService);
+        $sessionAuth = $authService->getStorage()->clear();
+        $this->assertEmpty($sessionAuth);
+
     }
 
 }

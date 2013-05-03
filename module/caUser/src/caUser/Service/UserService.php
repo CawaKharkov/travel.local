@@ -7,6 +7,9 @@ namespace caUser\Service;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Crypt\Password\Bcrypt;
+use Zend\Mail\Message;
+use Zend\Mail\Transport\Smtp;
+use Zend\Mail\Transport\SmtpOptions;
 
 /**
  * Class UserService
@@ -17,6 +20,7 @@ class UserService implements ServiceLocatorAwareInterface
 
     private $serviceLocator;
     private $em;
+    private $causerConfig;
 
     /**
      *  Set service locator in counstruct
@@ -25,6 +29,7 @@ class UserService implements ServiceLocatorAwareInterface
     public function __construct(ServiceLocatorInterface $serviceLocator)
     {
         $this->serviceLocator = $serviceLocator;
+        $this->causerConfig = $this->serviceLocator->get('config')['causer'];
     }
 
     /**
@@ -99,7 +104,7 @@ class UserService implements ServiceLocatorAwareInterface
             $authService->getStorage()->write($identity);
             $pluginManager = $this->getServiceLocator()->get('Zend\Mvc\Controller\PluginManager');
             $redirectPlugin = $pluginManager->get('redirect');
-            return $redirectPlugin->toRoute('Cabinet');
+            return $redirectPlugin->toRoute($this->causerConfig['options']['redirect']['route']);
         } else {
             return false;
         }
@@ -147,5 +152,70 @@ class UserService implements ServiceLocatorAwareInterface
         $pluginManager = $this->getServiceLocator()->get('Zend\Mvc\Controller\PluginManager');
         $redirectPlugin = $pluginManager->get('redirect');
         return $redirectPlugin->toRoute('cuUser', ['action' => 'login']);
+    }
+
+    /**
+     * Delete User
+     * @param \caUser\Entity\User $user
+     * @return \caUser\Service\UserService
+     */
+    public function deleteUser(\caUser\Entity\User $user)
+    {
+        $this->getRepository()->delete($user);
+        return $this;
+    }
+
+    /**
+     * Get user by id
+     * @param integer $id
+     * @return \caUser\Entity\User
+     */
+    public function getUserById($id)
+    {
+        return $this->getRepository()->find($id);
+    }
+
+    /**
+     * Restore password for user
+     * @return \caUser\Entity\User
+     * @throw \Exception
+     */
+    public function restorePassword($email)
+    {
+
+        $user = $this->getUserbyEmail($email);
+        if ($user)
+        {
+            $bcript = new Bcrypt();
+
+            //generate password for cript again
+            $values = array_merge(range(65, 90), range(97, 122), range(48, 57));
+            $max = count($values) - 1;
+            $str = chr(mt_rand(97, 122));
+            $length = $this->causerConfig['password_restore']['password_length'];
+            for ($i = 1; $i < $length; $i++) {
+                $str .= chr($values[mt_rand(0, $max)]);
+            }
+            //cript password and set to entity
+            $password = $bcript->create($str);
+            $user->setPassword($password);
+            $this->getRepository()->save($user);
+            //send new password to email
+            $message = new Message();
+            $transport = new Smtp();
+            $transportOptions = new SmtpOptions($this->causerConfig['password_restore']['mail']['smtp']);
+            $message->setBody('Your new password: ' . $str);
+            $message->addFrom($this->causerConfig['password_restore']['mail']['options']['sender']);
+            $message->addTo($email);
+            $message->setSubject($this->causerConfig['password_restore']['mail']['options']['subject']);
+            $transport->setOptions($transportOptions);
+            $transport->send($message);
+
+            return $user;
+        } else
+        {
+            throw new \Exception('Email not found');
+        }
+
     }
 }

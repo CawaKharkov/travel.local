@@ -7,6 +7,12 @@
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.zendframework.com/"
+        }
+    ],
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "2.*",
@@ -14,6 +20,8 @@
         "doctrine/migrations": "dev-master",
         "Mockery/Mockery": "dev-master",
         "zendframework/zftool": "dev-master",
-        "phpunit/phpunit": "3.7.*@dev"
+        "phpunit/phpunit": "3.7.*@dev",
+        "zendframework/zendopenid": "dev-master"
     }
+
 }
