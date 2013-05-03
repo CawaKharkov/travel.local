@@ -5,13 +5,13 @@ return [
             'mail' => [
                 ## Configuration for login auth
                 'smtp' => [
-                    'name'              => 'mail.gkmorion.ru',
-                    'host'              => 'mail.gkmorion.ru',
+                    'name'              => 'localhost',
+                    'host'              => 'localhost',
                     'port'              => 25,
                     'connection_class'  => 'login',
                     'connection_config' => [
-                        'username' => 'neiron@gkmorion.ru',
-                        'password' => 'infer486kl!:)',
+                        'username' => '',
+                        'password' => '',
                     ],
                 ],
                 ## Configuration for plain auth
