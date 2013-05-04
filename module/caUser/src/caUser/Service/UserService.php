@@ -186,7 +186,7 @@ class UserService implements ServiceLocatorAwareInterface
         $user = $this->getUserbyEmail($email);
         if ($user)
         {
-            $bcript = new Bcrypt();
+            $bcrypt = new Bcrypt();
 
             //generate password for cript again
             $values = array_merge(range(65, 90), range(97, 122), range(48, 57));
@@ -196,8 +196,8 @@ class UserService implements ServiceLocatorAwareInterface
             for ($i = 1; $i < $length; $i++) {
                 $str .= chr($values[mt_rand(0, $max)]);
             }
-            //cript password and set to entity
-            $password = $bcript->create($str);
+            //crypt password and set to entity
+            $password = $bcrypt->create($str);
             $user->setPassword($password);
             $this->getRepository()->save($user);
             //send new password to email
@@ -217,5 +217,23 @@ class UserService implements ServiceLocatorAwareInterface
             throw new \Exception('Email not found');
         }
 
+    }
+
+    /**
+     * @param string $oldpassword
+     * @param string $newpassword
+     */
+    public function changePassword($oldpassword, $newpassword)
+    {
+        $user = $this->getCurrentUser();
+        $bcrypt = new Bcrypt();
+        if($bcrypt->verify($oldpassword, $user->getPassword()))
+        {
+            $user->setPassword($bcrypt->create($newpassword));
+            $this->getRepository()->save($user);
+        } else
+        {
+            throw new \Exception('Incorrect old password');
+        }
     }
 }

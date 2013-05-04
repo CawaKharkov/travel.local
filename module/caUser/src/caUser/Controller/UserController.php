@@ -6,7 +6,8 @@ namespace caUser\Controller;
 
 use Zend\Crypt\Password\Bcrypt;
 use Zend\View\Model\ViewModel;
-use ZendOpenId\OpenId;
+use caUser\Form\ChangePassword;
+use caUser\Form\ChangePasswordValidator;
 use caUser\Service\UserService as Service;
 use caUser\Form\RegistrationForm;
 use caUser\Form\LoginForm;
@@ -174,6 +175,36 @@ class UserController extends AbstractController
                     'email' => ['Invalid email or short chars']
                 ];
                 $form->setMessages($message);
+            }
+        }
+        $vm->setVariable('form', $form);
+        return $vm;
+    }
+
+    public function changepasswordAction()
+    {
+        $vm = new ViewModel();
+        $form = new ChangePassword();
+        $request = $this->getRequest();
+        $service = new Service($this->getServiceLocator());
+        if($request->isPost())
+        {
+            $validator = new ChangePasswordValidator();
+            $form->setInputFilter($validator->getInputFilter());
+            $form->setData($request->getPost());
+            if($form->isValid()) {
+               $data = $form->getData();
+               try
+               {
+                   $service->changePassword($data['oldpassword'], $data['newpassword']);
+                   $messages = ['newpassword' => ['Your new password: ' . $data['newpassword']]];
+                   $form->setMessages($messages);
+               } catch(\Exception $e)
+               {
+                   $messages = ['oldpassword' => [$e->getMessage()]];
+                   $form->setMessages($messages);
+               }
+
             }
         }
         $vm->setVariable('form', $form);
