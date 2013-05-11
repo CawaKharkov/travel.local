@@ -1,1 +1,1 @@
-php ~/www/travel.local/vendor/phpunit/phpunit/phpunit.php -c ~/www/travel.local/module/caUser/tests/
+php f:/serv/home/travel.local/vendor/phpunit/phpunit/phpunit.php -c f:/serv/home/travel.local/module/caUser/tests/

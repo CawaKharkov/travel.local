@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "6d4db0e1ec16e1bcaf9371cba9865432",
+    "hash": "8de4b6e8c1a9e5847ab9d0c6a15a0e9f",
     "packages": [
         {
             "name": "doctrine/common",
@@ -59,7 +59,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -76,16 +76,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2.3.3"
+                "reference": "2.3.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2.3.3",
-                "reference": "2.3.3",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2.3.4",
+                "reference": "2.3.4",
                 "shasum": ""
             },
             "require": {
@@ -135,7 +135,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-03-24 19:16:29"
+            "time": "2013-05-11 07:45:37"
         },
         {
             "name": "doctrine/doctrine-module",
@@ -278,7 +278,7 @@
                 {
                     "name": "Marco Pivetta",
                     "email": "ocramius@gmail.com",
-                    "homepage": "http://marco-pivetta.com/",
+                    "homepage": "http://ocramius.github.com/",
                     "role": "Developer"
                 },
                 {
@@ -357,16 +357,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "2.3.3"
+                "reference": "2.3.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2.3.3",
-                "reference": "2.3.3",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2.3.4",
+                "reference": "2.3.4",
                 "shasum": ""
             },
             "require": {
@@ -423,7 +423,56 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-03-24 20:43:58"
+            "time": "2013-05-11 07:51:12"
+        },
+        {
+            "name": "hybridauth/hybridauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hybridauth/hybridauth.git",
+                "reference": "6d89473b379fc7a904e69ee63f548af3308bd4d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/6d89473b379fc7a904e69ee63f548af3308bd4d9",
+                "reference": "6d89473b379fc7a904e69ee63f548af3308bd4d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hybrid": "hybridauth/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(MIT or GPL-3.0+)"
+            ],
+            "authors": [
+                {
+                    "name": "Miled",
+                    "email": "hybridauth@gmail.com"
+                }
+            ],
+            "description": "Open source social sign on PHP library.",
+            "homepage": "http://hybridauth.sourceforge.net",
+            "keywords": [
+                "OpenId",
+                "facebook",
+                "google",
+                "hybridauth",
+                "login",
+                "oauth",
+                "social",
+                "twitter",
+                "yahoo"
+            ],
+            "time": "2013-02-21 06:45:16"
         },
         {
             "name": "mockery/mockery",
@@ -431,15 +480,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "3bd6f1712642838b4c0524d3a47359940df72e80"
+                "reference": "28c77695ac5167e533f86e0268c0a83ef1ac693a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/3bd6f1712642838b4c0524d3a47359940df72e80",
-                "reference": "3bd6f1712642838b4c0524d3a47359940df72e80",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/28c77695ac5167e533f86e0268c0a83ef1ac693a",
+                "reference": "28c77695ac5167e533f86e0268c0a83ef1ac693a",
                 "shasum": ""
             },
             "require": {
+                "lib-pcre": ">=7.0",
                 "php": ">=5.3.2"
             },
             "require-dev": {
@@ -476,7 +526,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2013-04-29 23:44:28"
+            "time": "2013-05-08 16:54:26"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -715,12 +765,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b2ba9a6fa005ef708495bbd7fa95f1f35e2f17b1"
+                "reference": "19f1d742e0c36150001062f592c93f80aef3a9fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b2ba9a6fa005ef708495bbd7fa95f1f35e2f17b1",
-                "reference": "b2ba9a6fa005ef708495bbd7fa95f1f35e2f17b1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/19f1d742e0c36150001062f592c93f80aef3a9fd",
+                "reference": "19f1d742e0c36150001062f592c93f80aef3a9fd",
                 "shasum": ""
             },
             "require": {
@@ -781,7 +831,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-05-02 08:21:05"
+            "time": "2013-05-07 14:00:05"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1092,13 +1142,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/ZFTool.git",
-                "reference": "dacc7d9d6a9633f120d29f45da20ae13c4339847"
+                "reference": "7e14adce6d80b080f46afed190c92c1781f2aa47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.zendframework.com/composer/zendframework-zftool-dacc7d9d6a9633f120d29f45da20ae13c4339847-zip-c297fa.zip",
+                "url": "https://packages.zendframework.com/composer/zendframework-zftool-7e14adce6d80b080f46afed190c92c1781f2aa47-zip-417bc2.zip",
                 "reference": "dev-master",
-                "shasum": "91bb96b702c15939121c89cbf1f5dd880d167d99"
+                "shasum": "d4096cf27572ee2769ce8a2cc85fbd1ff21094e2"
             },
             "require": {
                 "php": ">=5.3.3",
@@ -1137,7 +1187,7 @@
                 "source": "https://github.com/zendframework/ZFTool/tree/master",
                 "issues": "https://github.com/zendframework/ZFTool/issues"
             },
-            "time": "2013-04-29 15:20:19"
+            "time": "2013-05-07 08:25:35"
         }
     ],
     "packages-dev": [
@@ -1152,7 +1202,8 @@
         "mockery/mockery": 20,
         "zendframework/zftool": 20,
         "phpunit/phpunit": 20,
-        "zendframework/zendopenid": 20
+        "zendframework/zendopenid": 20,
+        "hybridauth/hybridauth": 20
     },
     "platform": {
         "php": ">=5.4"
