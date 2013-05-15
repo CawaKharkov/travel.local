@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework [http://framework.zend.com/]
  *
@@ -6,6 +7,7 @@
  * @copyright Copyright [c] 2005-2012 Zend Technologies USA Inc. [http://www.zend.com]
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
+
 namespace caUser;
 
 return [
@@ -14,32 +16,47 @@ return [
             'Cabinet' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route'    => '/cabinet[/:id]',
+                    'route' => '/cabinet[/:id]',
                     'defaults' => [
                         //'__NAMESPACE__' => 'caUser\Controller',
                         'controller' => 'UserController',
-                        'action'     => 'cabinet',
+                        'action' => 'cabinet',
                     ],
                 ],
             ],
             'cuUser' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route'    => '/causer[/:action]',
+                    'route' => '/causer[/:action]',
                     'defaults' => [
                         //'__NAMESPACE__' => 'caUser\Controller',
                         'controller' => 'UserController',
-                        'action'     => 'login',
+                        'action' => 'login',
                     ],
                 ],
             ],
+            'test' => [
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/test',
+                    'defaults' => array(
+                        'controller' => 'TestController',
+                        'action' => 'index',
+                    ),
+                ),]
         ],
     ],
     'controllers' => [
         'invokables' => [
             'UserController' => 'caUser\Controller\UserController',
+            'TestController' => 'caUser\Controller\TestController',
         ],
     ],
+    'controller_plugins' => array(
+        'invokables' => array(
+            'vkAuthPlugin' => 'caUser\Controller\Plugin\vkAuthPlugin',
+        )
+    ),
     'view_manager' => [
         'template_path_stack' => [
             'causer' => __DIR__ . '/../view',

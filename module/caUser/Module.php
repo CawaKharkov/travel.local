@@ -4,6 +4,7 @@ namespace caUser;
 
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
+use caUser\Auth\SocialAuth\SocialAuthService;
 use Zend\Authentication\AuthenticationService,
     Zend\Mvc\MvcEvent;
 
@@ -33,7 +34,6 @@ class Module implements ServiceProviderInterface
                     // If you are using DoctrineORMModule:
                     return $serviceManager->get('doctrine.authenticationservice.orm_default');
                 },
-                
             ),
         );
     }

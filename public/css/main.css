@@ -133,3 +133,8 @@ body {
 #footer{
     color: #022c55;
 }
+
+#footer .container{
+    padding-top: 15px;
+}
+
