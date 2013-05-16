@@ -16,6 +16,7 @@ use caUser\Form\LoginValidator;
 use caUser\Entity\User;
 use caUser\Form\RestorePasswordForm;
 use caUser\Form\RestorePasswordValidator;
+use Zend\Session\Container;
 
 /**
  * Class UserController
@@ -32,7 +33,7 @@ class UserController extends AbstractController
     {
         $service = new Service($this->getServiceLocator());
         $vm = new ViewModel();
-
+        
         if(!$service->getCurrentUser()){
             $form = new LoginForm();
             $request = $this->getRequest();
@@ -55,13 +56,19 @@ class UserController extends AbstractController
                         $form->setMessages($error);
                     } else
                     {
-                       return  $this->redirect()->toRoute('Cabinet');
+                        $session = new Container('user');
+                        $session->social_auth = false;
+                        $session->auth = true;
+                        $session->id = $service->getCurrentUser()->getId();
+                        $session->username = $service->getCurrentUser()->username;
+                        return $this->redirect()->toRoute('Cabinet');
                     }
                 }
             }
 
             $vm->setVariable('form', $form);
         } else {
+            
             return  $this->redirect()->toRoute('Cabinet');
         }
         return $vm;
@@ -77,7 +84,7 @@ class UserController extends AbstractController
         if ($service->getCurrentUser()) {
             return new ViewModel(['user' => $service->getCurrentUser()]);
         } else {
-            return $this->redirect()->toRoute('cuUser', ['action' => 'login']);
+            return $this->redirect()->toRoute('caUser', ['action' => 'login']);
         }
 
     }

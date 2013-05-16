@@ -5,16 +5,18 @@ $output .= ' <ul class="nav">';
 foreach ($this->container as $page) {
 
     if ($page->class == 'right') {
-        //if ($this->zfcUserIdentity()) {
-        //    $output .= '</li></ul>';
-        //    $output .= $this->partial('partials/userwidget');
-        //} else {
         $output .= '</li></ul>';
         $output .= '<ul class="nav pull-right">';
-        foreach ($page as $p) {
-            $output .='<li>';
-            $output .= '<a href="#loginModal" role="button" data-toggle="modal">Войти</a>';
-            $output .='</li>';
+
+        $session = new Zend\Session\Container('user');
+        if ($session->username) {
+            $output .= '<li><a href="logout" role="button">Привет ' . $session->username.'</a></li>';
+        } else {
+            foreach ($page as $p) {
+                $output .='<li>';
+                $output .= '<a href="#loginModal" role="button" data-toggle="modal">Войти</a>';
+                $output .='</li>';
+            }
         }
         $output .='</ul>';
         //}
@@ -58,13 +60,20 @@ echo $output;
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">x</button>
         <h3>Login to MyWebsite.com</h3>
+
     </div>
     <div class="modal-body">
-        <?php echo $this->loginHelper(); ?>
+<?php echo $this->loginHelper(); ?>
 
     </div>
     <div class="modal-footer">
         New To MyWebsite.com?
-        <a href="#" class="btn btn-primary">Register</a>
+        <a href="<?php
+        echo $this->url(
+                'caUser', [
+            'controller' => 'user',
+            'action' => 'registration',
+        ])
+        ?>" class="btn btn-primary">Register</a>
     </div>
 </div>

@@ -46,6 +46,7 @@ class AclService  extends Acl
 
         $this->allow('anonymous', 'causer', 'usercontroller:index');
         $this->allow('anonymous', 'causer', 'usercontroller:login');
+        $this->allow('anonymous', 'causer', 'usercontroller:cabinet');
         $this->allow('anonymous', 'causer', 'usercontroller:registration');
 
         $this->allow('anonymous', 'application', 'usercontroller:login');

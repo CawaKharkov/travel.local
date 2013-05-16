@@ -18,18 +18,18 @@ return [
                 'options' => [
                     'route' => '/cabinet[/:id]',
                     'defaults' => [
-                        //'__NAMESPACE__' => 'caUser\Controller',
+                        '__NAMESPACE__' => 'caUser\Controller',
                         'controller' => 'UserController',
                         'action' => 'cabinet',
                     ],
                 ],
             ],
-            'cuUser' => [
+            'caUser' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => '/causer[/:action]',
+                    'route' => '/user[/:action]',
                     'defaults' => [
-                        //'__NAMESPACE__' => 'caUser\Controller',
+                        '__NAMESPACE__' => 'caUser\Controller',
                         'controller' => 'UserController',
                         'action' => 'login',
                     ],
@@ -48,7 +48,7 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'UserController' => 'caUser\Controller\UserController',
+            'caUser\Controller\UserController' => 'caUser\Controller\UserController',
             'TestController' => 'caUser\Controller\TestController',
         ],
     ],
