@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8de4b6e8c1a9e5847ab9d0c6a15a0e9f",
+    "hash": "625a250371b76372bfb92ed9402135f5",
     "packages": [
         {
             "name": "doctrine/common",
@@ -139,16 +139,16 @@
         },
         {
             "name": "doctrine/doctrine-module",
-            "version": "0.7.1",
+            "version": "0.7.2",
             "source": {
                 "type": "git",
-                "url": "git://github.com/doctrine/DoctrineModule.git",
-                "reference": "0.7.1"
+                "url": "https://github.com/doctrine/DoctrineModule.git",
+                "reference": "0.7.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineModule/archive/0.7.1.zip",
-                "reference": "0.7.1",
+                "url": "https://api.github.com/repos/doctrine/DoctrineModule/zipball/0.7.2",
+                "reference": "0.7.2",
                 "shasum": ""
             },
             "require": {
@@ -219,7 +219,7 @@
                 "module",
                 "zf2"
             ],
-            "time": "2013-01-14 14:25:26"
+            "time": "2013-05-16 18:27:30"
         },
         {
             "name": "doctrine/doctrine-orm-module",
@@ -530,16 +530,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "1.2.9",
+            "version": "1.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "1.2.9"
+                "reference": "1.2.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/1.2.9",
-                "reference": "1.2.9",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/1.2.11",
+                "reference": "1.2.11",
                 "shasum": ""
             },
             "require": {
@@ -547,6 +547,9 @@
                 "phpunit/php-file-iterator": ">=1.3.0@stable",
                 "phpunit/php-text-template": ">=1.1.1@stable",
                 "phpunit/php-token-stream": ">=1.1.3@stable"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "suggest": {
                 "ext-dom": "*",
@@ -579,7 +582,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-02-26 18:55:56"
+            "time": "2013-05-23 18:23:24"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -765,12 +768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a00cdfb2551b45d2cd9b1d076b6a385fb29b22e0"
+                "reference": "3.7.21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a00cdfb2551b45d2cd9b1d076b6a385fb29b22e0",
-                "reference": "a00cdfb2551b45d2cd9b1d076b6a385fb29b22e0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3.7.21",
+                "reference": "3.7.21",
                 "shasum": ""
             },
             "require": {
@@ -831,7 +834,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-05-15 01:40:01"
+            "time": "2013-05-23 18:54:29"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1146,13 +1149,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/ZFTool.git",
-                "reference": "7e14adce6d80b080f46afed190c92c1781f2aa47"
+                "reference": "a45213c5216dcbeb093c6c3a76b0525d15d84650"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.zendframework.com/composer/zendframework-zftool-7e14adce6d80b080f46afed190c92c1781f2aa47-zip-417bc2.zip",
+                "url": "https://packages.zendframework.com/composer/zendframework-zftool-a45213c5216dcbeb093c6c3a76b0525d15d84650-zip-7b4313.zip",
                 "reference": "dev-master",
-                "shasum": "d4096cf27572ee2769ce8a2cc85fbd1ff21094e2"
+                "shasum": "f4cd2f1109052d09b91e94f872a2611fc299aa94"
             },
             "require": {
                 "php": ">=5.3.3",
@@ -1163,6 +1166,7 @@
                 "zendframework/zend-loader": ">=2.0.0",
                 "zendframework/zend-modulemanager": ">=2.0.0",
                 "zendframework/zend-mvc": ">=2.0.0",
+                "zendframework/zend-serializer": ">=2.0.0",
                 "zendframework/zend-servicemanager": ">=2.0.0",
                 "zendframework/zend-stdlib": ">=2.0.0",
                 "zendframework/zend-text": ">=2.0.0",
@@ -1191,7 +1195,7 @@
                 "source": "https://github.com/zendframework/ZFTool/tree/master",
                 "issues": "https://github.com/zendframework/ZFTool/issues"
             },
-            "time": "2013-05-07 08:25:35"
+            "time": "2013-05-17 17:19:11"
         }
     ],
     "packages-dev": [

@@ -11,41 +11,6 @@
 namespace caUser;
 
 return [
-    'router' => [
-        'routes' => [
-            'Cabinet' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => '/cabinet[/:id]',
-                    'defaults' => [
-                        //'__NAMESPACE__' => 'caUser\Controller',
-                        'controller' => 'UserController',
-                        'action' => 'cabinet',
-                    ],
-                ],
-            ],
-            'cuUser' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => '/causer[/:action]',
-                    'defaults' => [
-                        //'__NAMESPACE__' => 'caUser\Controller',
-                        'controller' => 'UserController',
-                        'action' => 'login',
-                    ],
-                ],
-            ],
-            'test' => [
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/test',
-                    'defaults' => array(
-                        'controller' => 'TestController',
-                        'action' => 'index',
-                    ),
-                ),]
-        ],
-    ],
     'controllers' => [
         'invokables' => [
             'UserController' => 'caUser\Controller\UserController',
