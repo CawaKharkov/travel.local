@@ -8,12 +8,11 @@ use Zend\Crypt\Password\Bcrypt;
 use Zend\View\Model\ViewModel;
 use caUser\Form\ChangePassword;
 use caUser\Form\ChangePasswordValidator;
-use caUser\Service\UserService as Service;
+use caUser\Entity\CauserService as Service;
 use caUser\Form\RegistrationForm;
 use caUser\Form\LoginForm;
 use caUser\Form\RegistrationValidator;
 use caUser\Form\LoginValidator;
-use caUser\Entity\User;
 use caUser\Form\RestorePasswordForm;
 use caUser\Form\RestorePasswordValidator;
 
@@ -32,6 +31,7 @@ class UserController extends AbstractController
     {
         $service = new Service($this->getServiceLocator());
         $vm = new ViewModel();
+        $causerConf = $this->getServiceLocator()->get('config')['causer'];
 
         if(!$service->getCurrentUser()){
             $form = new LoginForm();
@@ -55,14 +55,18 @@ class UserController extends AbstractController
                         $form->setMessages($error);
                     } else
                     {
-                       return  $this->redirect()->toRoute('cabinet');
+                       return  $this->redirect()->toRoute(
+                           $causerConf['options']['redirect']['route']
+                       );
                     }
                 }
             }
 
             $vm->setVariable('form', $form);
         } else {
-            return  $this->redirect()->toRoute('cabinet');
+            return  $this->redirect()->toRoute(
+                $causerConf['options']['redirect']['route']
+            );
         }
         return $vm;
     }
@@ -117,7 +121,12 @@ class UserController extends AbstractController
                         'username' => $data['username'],
                         'password' => $password
                     ];
-                    $user = new User($arr);
+                    $user = $this->getServiceLocator()->get('config')
+                        ['doctrine']['authentication']
+                        ['orm_default']['identity_class'];
+                    $user = new $user($arr);
+
+
                     $service->registrationUser($user);
                     $service->authenticate($data['email'], $data['password']);
                 } else {

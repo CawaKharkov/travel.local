@@ -43,7 +43,7 @@ return [
             ##redirect options after login, registration
             'redirect' => [
                 ## Route name
-                'route' => 'Cabinet',
+                'route' => 'cabinet',
             ]
         ]
     ]

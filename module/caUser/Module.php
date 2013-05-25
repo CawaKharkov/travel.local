@@ -18,7 +18,7 @@ class Module implements ServiceProviderInterface
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-        //$eventManager->attach('dispatch', array($this, 'checkAcl'));
+        $eventManager->attach('dispatch', array($this, 'checkAcl'));
     }
     /**
      * Expected to return \Zend\ServiceManager\Config object or array to

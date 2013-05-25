@@ -19,11 +19,16 @@ return array(
         'authentication' => array(
             'orm_default' => array(
                 'object_manager' => 'Doctrine\ORM\EntityManager',
-                'identity_class' => 'caUser\Entity\User',
+                'identity_class' => 'Application\Entity\User\User', // write here your entity
                 'identity_property' => 'email',
                 'credential_property' => 'password',
-                'credentialCallable' => function(\caUser\Framework\EntityDefault $user, $passwordGiven){
-                    return \caUser\Service\UserService::checkCredencial($passwordGiven, $user->getPassword());
+                'credentialCallable' => function(
+                    \caUser\Entity\Base\EntityDefault $user, $passwordGiven
+                )
+                {
+                    return \caUser\Entity\CauserService::checkCredencial(
+                        $passwordGiven, $user->getPassword()
+                    );
                 },
             ),
         ),

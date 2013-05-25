@@ -30,7 +30,7 @@ class vkAuthPlugin extends AbstractPlugin
         
     }
 
-    /* 
+    /**
      * 
      * @param ServiceManager $serviceManager
      * @param Request $request

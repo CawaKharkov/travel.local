@@ -15,7 +15,7 @@ class LoginForm extends Form
     public function __construct($name = null)
     {
         // we want to ignore the name passed
-        parent::__construct('RegistrationForm');
+        parent::__construct('LoginForm');
         $this->setAttribute('method', 'post');
         $this->add(array(
             'name' => 'id',
@@ -23,7 +23,7 @@ class LoginForm extends Form
         ));
         $this->add(array(
             'name' => 'email',
-            'type' => 'Text',
+            'type' => 'Email',
             'options' => array(
                 'label' => 'Email',
             ),
