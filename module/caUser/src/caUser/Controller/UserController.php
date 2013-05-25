@@ -55,14 +55,14 @@ class UserController extends AbstractController
                         $form->setMessages($error);
                     } else
                     {
-                       return  $this->redirect()->toRoute('Cabinet');
+                       return  $this->redirect()->toRoute('cabinet');
                     }
                 }
             }
 
             $vm->setVariable('form', $form);
         } else {
-            return  $this->redirect()->toRoute('Cabinet');
+            return  $this->redirect()->toRoute('cabinet');
         }
         return $vm;
     }
@@ -77,7 +77,7 @@ class UserController extends AbstractController
         if ($service->getCurrentUser()) {
             return new ViewModel(['user' => $service->getCurrentUser()]);
         } else {
-            return $this->redirect()->toRoute('cuUser', ['action' => 'login']);
+            return $this->redirect()->toRoute('causer', ['action' => 'login']);
         }
 
     }

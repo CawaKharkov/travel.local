@@ -41,8 +41,9 @@ class Module implements ServiceProviderInterface
     public function getConfig()
     {
         $module = require __DIR__ . '/config/module.config.php';
-        //$config = array_merge_recursive($LexUserConfig,$module);
-        return $module;
+        $router = require __DIR__ . '/config/router.config.php';
+        $config = array_merge_recursive($module, $router);
+        return $config;
     }
 
     public function getAutoloaderConfig()
