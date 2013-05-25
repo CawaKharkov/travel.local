@@ -26,21 +26,21 @@ foreach ($this->container as $page) {
         $output .= '<a href="' . $page->getHref() . '" class="' . $page->getClass() . '" >';
         switch ($page->id) {
             case 'desk': {
-                    $output .= '<i class="icon-th-list"></i>';
-                    break;
-                }
+                $output .= '<i class="icon-th-list"></i>';
+                break;
+            }
             case 'reply': {
-                    $output .= '<i class="icon-envelope"></i>';
-                    break;
-                }
+                $output .= '<i class="icon-envelope"></i>';
+                break;
+            }
             case 'users': {
-                    $output .= '<i class="icon-user"></i>';
-                    break;
-                }
+                $output .= '<i class="icon-user"></i>';
+                break;
+            }
             case 'news': {
-                    $output .= '<i class="icon-globe"></i>';
-                    break;
-                }
+                $output .= '<i class="icon-globe"></i>';
+                break;
+            }
         }
         $output .=$page->getLabel();
         $output .='</a>';
@@ -53,18 +53,14 @@ $output .= '<input type="text" placeholder="Поиск" class="search-query">';
 $output .= '</form></li></ul></div></div></nav>';
 
 echo $output;
-?> 
+?>
 <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">x</button>
-        <h3>Login to MyWebsite.com</h3>
+        <h3>Login to travelclub.com</h3>
     </div>
     <div class="modal-body">
-        <?php echo $this->loginHelper(); ?>
+        <?php echo $this->LoginHelper(); ?>
 
-    </div>
-    <div class="modal-footer">
-        New To MyWebsite.com?
-        <a href="#" class="btn btn-primary">Register</a>
     </div>
 </div>

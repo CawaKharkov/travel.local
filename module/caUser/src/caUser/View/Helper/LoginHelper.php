@@ -1,65 +1,52 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * namespace
  */
+namespace caUser\View\Helper;
+
+use Zend\View\Helper\AbstractHelper;
+use Zend\View\Model\ViewModel;
+use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Description of LoginHelper
- *
- * @author Cawa
+ * Class LangHelper
+ * @package caUser\View\Helper
  */
-
-namespace caUser\View\Helper;
- 
-use Zend\View\Helper\Identity,
-    Zend\Session\Container as SessionContainer,
-    //Application\Entity\User,
-    Zend\Form\Element;
- 
- 
-class LoginHelper extends Identity
+class LoginHelper extends AbstractHelper implements ServiceLocatorAwareInterface
 {
-    
-    protected $sesscontainer;
- 
-    public function __construct()
+
+    protected $serviceLocator;
+
+    public function __construct($serviceLocator)
     {
-        $this->getSessContainer();
+        $this->serviceLocator = $serviceLocator;
     }
- 
+
+    /**
+     * Set service locator
+     *
+     * @param ServiceLocatorInterface $serviceLocator
+     */
+    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
+    {
+        $this->serviceLocator = $serviceLocator;
+    }
+
+    /**
+     * Get service locator
+     *
+     * @return ServiceLocatorInterface
+     */
+    public function getServiceLocator()
+    {
+        return $this->serviceLocator;
+    }
+
     public function __invoke()
     {
-//        parent::__invoke();
-
-        $this->userInfo();
-        $this->loginForm();
-    }
-    
-    
-    protected function getSessContainer()
-    {
-        if (!$this->sesscontainer) {
-            $this->sesscontainer = new SessionContainer('user');
-        }
-        return $this->sesscontainer;
-    }
-    
-    
-    protected function loginForm()
-    {
-     echo '<form method="post" action=\'\' name="login_form">
-            <p><input type="text" class="span3" name="eid" id="email" placeholder="Email"></p>
-            <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
-            <p><button type="submit" class="btn btn-primary">Sign in</button>
-                <a href="#">Forgot Password?</a>
-            </p>
-        </form>';   
-    }
-    
-    protected function userInfo()
-    {
-        
+        $view = new ViewModel();
+        $view->setTemplate('/ca-user/helpers/loginhelper.phtml');
+        return $this->getView()->render($view);
     }
 }

@@ -152,6 +152,7 @@ return array(
                 'label' => 'Пользователи',
                 'route' => 'application/default',
                 'controller' => 'user',
+                'action' => 'users',
                 'id' => 'users'
             ],
             'userWidget' => [
@@ -161,7 +162,7 @@ return array(
                 'pages' => [
                     'login' => [
                         'label' => 'Войти',
-                        'route' => 'application',
+                        'route' => 'causer',
                         'controller' => 'user',
                         'action' => 'login',
                         'id' => 'login'

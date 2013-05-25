@@ -137,4 +137,8 @@ body {
 #footer .container{
     padding-top: 15px;
 }
+.clearfloat {
+    float: none;
+    clear: both;
+}
 

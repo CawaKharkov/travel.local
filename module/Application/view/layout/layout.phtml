@@ -4,18 +4,15 @@
         <meta charset="utf-8">
         <?php echo $this->headTitle() ?>
         <?php echo $this->headMeta() ?>
-
         <?php echo $this->headLink(); ?>
         <!--[if lt IE 9]>
                 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->    
     </head>
     <body>
-
         <?php
-        //echo $this->partial('/partials/main_menu')
-        $this->navigation('Navigation')->menu()->setPartial('partials/mainMenu.phtml');
-        echo $this->navigation('Navigation')->menu()->render();
+            $this->navigation('Navigation')->menu()->setPartial('partials/mainMenu.phtml');
+            echo $this->navigation('Navigation')->menu()->render();
         ?>                       
         <!--//header-->    
         <!-- Part 1: Wrap all page content here -->
@@ -28,7 +25,7 @@
                     <h1>Travel club</h1>
                 </div>
                
-                <?php //echo $this->partial('/partials/sideMenu')  ?>                            
+                <?php //echo $this->partial('/partials/sideMenu')  ?>
                 <!--page_container-->
                 <?php echo $this->content; ?>
                 <!--//page_container-->

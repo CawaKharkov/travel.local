@@ -56,16 +56,6 @@ class Module implements ServiceProviderInterface
             ),
         );
     }
- 
-    
-    public function getViewHelperConfig()
-    {
-        return array(
-            'invokables' => array(
-                'loginHelper' => 'caUser\View\Helper\LoginHelper'
-            ),
-        );
-    }
     
     public function checkAcl(MvcEvent $e)
     {
@@ -85,5 +75,17 @@ class Module implements ServiceProviderInterface
             $response->sendHeaders();
             exit();
         }
+    }
+
+    public function getViewHelperConfig()
+    {
+        return array(
+            'factories' => array(
+                'loginHelper' => function($sm) {
+                    $loginHelper = new \caUser\View\Helper\LoginHelper($sm);
+                    return $loginHelper;
+                }
+            )
+        );
     }
 }
