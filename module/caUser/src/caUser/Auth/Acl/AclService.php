@@ -68,7 +68,8 @@ class AclService  extends Acl
         
 
         $moduleName = $routeMatch->getParam('__NAMESPACE__', 'application');
-        $moduleName = strtolower(array_shift(explode('\\', $moduleName)));
+        $moduleName = explode('\\', $moduleName);
+        $moduleName = strtolower(array_shift($moduleName));
         
         $role = (!$this->getSessContainer()->role ) ? 'anonymous' : $this->getSessContainer()->role;
         $actionName = strtolower($routeMatch->getParam('action', 'not-found')); // get the action name 
