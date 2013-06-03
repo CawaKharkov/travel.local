@@ -37,27 +37,9 @@ class AclService  extends Acl
         $this->addResource('application'); // Application module
         $this->addResource('causer'); // Application module
         
-        $this->allow('anonymous', 'application', 'index:index');
-        $this->allow('anonymous', 'application', 'error:index');
-        $this->deny('anonymous', 'application', 'test:index');
         
-        $this->allow('anonymous', 'application', 'news:index');
-        $this->allow('anonymous', 'application', 'user:index');
-
-        $this->allow('anonymous', 'causer', 'usercontroller:index');
-        $this->allow('anonymous', 'causer', 'usercontroller:login');
-        $this->allow('anonymous', 'causer', 'usercontroller:cabinet');
-        $this->allow('anonymous', 'causer', 'usercontroller:registration');
-
-        $this->allow('anonymous', 'application', 'usercontroller:login');
-        $this->allow('anonymous', 'application', 'usercontroller:registration');
-        $this->allow('anonymous', 'application', 'usercontroller:cabinet');
-        $this->allow('anonymous', 'application', 'usercontroller:exit');
-        $this->allow('anonymous', 'application', 'usercontroller:test');
-        $this->allow('anonymous', 'application', 'usercontroller:restorepassword');
-        $this->allow('anonymous', 'application', 'usercontroller:changepassword');
-        
-        
+        $this->allow('anonymous', 'causer', null);
+        $this->allow('anonymous', 'application', null);
     }
     
     public function canAccess(RouteStackInterface $router, Request $request)

@@ -63,7 +63,8 @@ class Module implements AutoloaderProviderInterface
                                          ->appendFile('/js/bootstrap.min.js')
                                          ->appendFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js')
                                          ->appendFile('/js/main.js')
-                                         ->appendFile('/js/admin.js');
+                                         ->appendFile('/js/admin.js')
+                                         ->appendFile('/js/thirdparty/bootstrap.file-input.js');
     }
     
     

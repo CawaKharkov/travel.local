@@ -5,6 +5,8 @@
  */
 chdir(dirname(__DIR__));
 
+define('BASE_DIR', dirname(__DIR__));
+
 define('REQUEST_MICROTIME', microtime(true));
 
 // Setup autoloading

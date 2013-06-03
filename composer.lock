@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8de4b6e8c1a9e5847ab9d0c6a15a0e9f",
+    "hash": "8c76d6846e164f9982e1214829417530",
     "packages": [
         {
             "name": "doctrine/common",
@@ -139,16 +139,16 @@
         },
         {
             "name": "doctrine/doctrine-module",
-            "version": "0.7.1",
+            "version": "0.7.2",
             "source": {
                 "type": "git",
-                "url": "git://github.com/doctrine/DoctrineModule.git",
-                "reference": "0.7.1"
+                "url": "https://github.com/doctrine/DoctrineModule.git",
+                "reference": "0.7.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineModule/archive/0.7.1.zip",
-                "reference": "0.7.1",
+                "url": "https://api.github.com/repos/doctrine/DoctrineModule/zipball/0.7.2",
+                "reference": "0.7.2",
                 "shasum": ""
             },
             "require": {
@@ -219,7 +219,7 @@
                 "module",
                 "zf2"
             ],
-            "time": "2013-01-14 14:25:26"
+            "time": "2013-05-16 18:27:30"
         },
         {
             "name": "doctrine/doctrine-orm-module",
@@ -426,66 +426,17 @@
             "time": "2013-05-11 07:51:12"
         },
         {
-            "name": "hybridauth/hybridauth",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hybridauth/hybridauth.git",
-                "reference": "6d89473b379fc7a904e69ee63f548af3308bd4d9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/6d89473b379fc7a904e69ee63f548af3308bd4d9",
-                "reference": "6d89473b379fc7a904e69ee63f548af3308bd4d9",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Hybrid": "hybridauth/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "(MIT or GPL-3.0+)"
-            ],
-            "authors": [
-                {
-                    "name": "Miled",
-                    "email": "hybridauth@gmail.com"
-                }
-            ],
-            "description": "Open source social sign on PHP library.",
-            "homepage": "http://hybridauth.sourceforge.net",
-            "keywords": [
-                "OpenId",
-                "facebook",
-                "google",
-                "hybridauth",
-                "login",
-                "oauth",
-                "social",
-                "twitter",
-                "yahoo"
-            ],
-            "time": "2013-02-21 06:45:16"
-        },
-        {
             "name": "mockery/mockery",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "422e6dc81ef12e4714248a06bca6dd382f3b38dd"
+                "reference": "70739803f85065cc2ec00fae662bdcaaa4df487e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/422e6dc81ef12e4714248a06bca6dd382f3b38dd",
-                "reference": "422e6dc81ef12e4714248a06bca6dd382f3b38dd",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/70739803f85065cc2ec00fae662bdcaaa4df487e",
+                "reference": "70739803f85065cc2ec00fae662bdcaaa4df487e",
                 "shasum": ""
             },
             "require": {
@@ -526,20 +477,20 @@
                 "test double",
                 "testing"
             ],
-            "time": "2013-05-13 12:56:51"
+            "time": "2013-05-29 09:13:17"
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "1.2.9",
+            "version": "1.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "1.2.9"
+                "reference": "1.2.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/1.2.9",
-                "reference": "1.2.9",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/1.2.11",
+                "reference": "1.2.11",
                 "shasum": ""
             },
             "require": {
@@ -547,6 +498,9 @@
                 "phpunit/php-file-iterator": ">=1.3.0@stable",
                 "phpunit/php-text-template": ">=1.1.1@stable",
                 "phpunit/php-token-stream": ">=1.1.3@stable"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "suggest": {
                 "ext-dom": "*",
@@ -579,7 +533,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-02-26 18:55:56"
+            "time": "2013-05-23 18:23:24"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -765,12 +719,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a00cdfb2551b45d2cd9b1d076b6a385fb29b22e0"
+                "reference": "268d9f12f6b7e982ad7bb40ea492085a3d1414d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a00cdfb2551b45d2cd9b1d076b6a385fb29b22e0",
-                "reference": "a00cdfb2551b45d2cd9b1d076b6a385fb29b22e0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/268d9f12f6b7e982ad7bb40ea492085a3d1414d6",
+                "reference": "268d9f12f6b7e982ad7bb40ea492085a3d1414d6",
                 "shasum": ""
             },
             "require": {
@@ -831,7 +785,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-05-15 01:40:01"
+            "time": "2013-06-01 10:06:56"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1092,53 +1046,41 @@
             "time": "2013-05-15 10:27:32"
         },
         {
-            "name": "zendframework/zendopenid",
+            "name": "zendframework/zendservice-api",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/ZendOpenId.git",
-                "reference": "cde674b4fb8483248a08515fec29857bb6b16c49"
+                "url": "https://github.com/zendframework/ZendService_Api.git",
+                "reference": "release-1.0.0beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.zendframework.com/composer/zendframework-zendopenid-cde674b4fb8483248a08515fec29857bb6b16c49-zip-ff6fae.zip",
+                "url": "https://packages.zendframework.com/composer/zendframework-zendservice-api-dev-master-release-1.0.0beta1-692262.zip",
                 "reference": "dev-master",
-                "shasum": "6fbad42c1f12e27419aa47793ca89e7b4e7ec453"
+                "shasum": "12d2b89901abe31e512dbb28009b34f52c1e03c1"
             },
             "require": {
                 "php": ">=5.3.3",
-                "zendframework/zend-eventmanager": ">=2.0.0",
-                "zendframework/zend-http": ">=2.0.0",
-                "zendframework/zend-session": ">=2.0.0"
-            },
-            "require-dev": {
-                "zendframework/zendframework": ">=2.0.0"
+                "zendframework/zend-http": ">=2.1.4"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
-                    "ZendOpenId": "library/"
+                    "ZendService\\Api\\": "library/"
                 }
             },
             "license": [
                 "BSD-3-Clause"
             ],
-            "description": "provides a simple API for building OpenID-enabled sites and identity providers",
-            "homepage": "http://packages.zendframework.com/",
+            "description": "Micro framework for HTTP API client",
             "keywords": [
-                "openid",
+                "api",
                 "zf2"
             ],
             "support": {
-                "source": "https://github.com/zendframework/ZendOpenId/tree/master",
-                "issues": "https://github.com/zendframework/ZendOpenId/issues"
+                "source": "https://github.com/zendframework/ZendService_Api/tree/release-1.0.0beta1"
             },
-            "time": "2012-12-11 21:35:29"
+            "time": "2013-05-14 16:09:22"
         },
         {
             "name": "zendframework/zftool",
@@ -1146,13 +1088,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/ZFTool.git",
-                "reference": "7e14adce6d80b080f46afed190c92c1781f2aa47"
+                "reference": "a45213c5216dcbeb093c6c3a76b0525d15d84650"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.zendframework.com/composer/zendframework-zftool-7e14adce6d80b080f46afed190c92c1781f2aa47-zip-417bc2.zip",
+                "url": "https://packages.zendframework.com/composer/zendframework-zftool-a45213c5216dcbeb093c6c3a76b0525d15d84650-zip-7b4313.zip",
                 "reference": "dev-master",
-                "shasum": "d4096cf27572ee2769ce8a2cc85fbd1ff21094e2"
+                "shasum": "f4cd2f1109052d09b91e94f872a2611fc299aa94"
             },
             "require": {
                 "php": ">=5.3.3",
@@ -1163,6 +1105,7 @@
                 "zendframework/zend-loader": ">=2.0.0",
                 "zendframework/zend-modulemanager": ">=2.0.0",
                 "zendframework/zend-mvc": ">=2.0.0",
+                "zendframework/zend-serializer": ">=2.0.0",
                 "zendframework/zend-servicemanager": ">=2.0.0",
                 "zendframework/zend-stdlib": ">=2.0.0",
                 "zendframework/zend-text": ">=2.0.0",
@@ -1191,7 +1134,7 @@
                 "source": "https://github.com/zendframework/ZFTool/tree/master",
                 "issues": "https://github.com/zendframework/ZFTool/issues"
             },
-            "time": "2013-05-07 08:25:35"
+            "time": "2013-05-17 17:19:11"
         }
     ],
     "packages-dev": [
@@ -1206,8 +1149,7 @@
         "mockery/mockery": 20,
         "zendframework/zftool": 20,
         "phpunit/phpunit": 20,
-        "zendframework/zendopenid": 20,
-        "hybridauth/hybridauth": 20
+        "zendframework/zendservice-api": 20
     },
     "platform": {
         "php": ">=5.4"

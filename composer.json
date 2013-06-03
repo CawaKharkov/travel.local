@@ -21,7 +21,7 @@
         "Mockery/Mockery": "dev-master",
         "zendframework/zftool": "dev-master",
         "phpunit/phpunit": "3.7.*@dev",
-        "zendframework/zendopenid": "dev-master",
+        "zendframework/zendservice-api": "dev-master"
       
     }
 
