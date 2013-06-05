@@ -78,7 +78,8 @@ class Module implements AutoloaderProviderInterface
     {
         return array(
             'invokables' => array(
-                'loginHelper' => 'Application\View\Helper\LoginHelper'
+                'loginHelper' => 'Application\View\Helper\LoginHelper',
+                'userInfoHelper' => 'caUser\View\Helper\UserInfoHelper' 
             ),
         );
     }
