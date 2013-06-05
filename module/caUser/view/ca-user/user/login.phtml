@@ -3,9 +3,18 @@ $form = $this->form;
 $form->setAttribute('action', $this->url('caUser', array('action' => 'login')));
 $form->prepare();
 
-echo "<div style='text-align:right; width:400px;'>" . $this->form()->openTag($form);
+echo "<div>" . $this->form()->openTag($form);
 echo $this->formHidden($form->get('id'));
 echo $this->formRow($form->get('email'));
 echo $this->formRow($form->get('password'));
 echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag()."</div>";
+?>
+
+<a href="<?php
+        echo $this->url(
+                'caUser', [
+            'controller' => 'user',
+            'action' => 'registration',
+        ]);
+        ?>" class="btn btn-primary">Register</a>

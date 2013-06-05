@@ -113,49 +113,42 @@ return array(
     'navigation' => [
         'default' => [
             'logo' => [
-                'label' => 'Travel around',
+                'label' => 'Home',
                 'route' => 'application',
-               'class' => 'brand',
+                'id' => 'home'
             ],
            
             'profile' => [
-                'label' => 'Обьявления',
+                'label' => 'Billboard',
                 'route' => 'application',
                 'controller' => 'desk',
                 'id' => 'desk',
             ],
             'reply' => [
-                'label' => 'Ответы',
+                'label' => 'Answers',
                 'route' => 'application',
                 'controller' => 'user',
                 'action' => 'reply',
                 'id' => 'reply'
             ],
             'news' => [
-                'label' => 'Новости',
+                'label' => 'News',
                 'route' => 'application',
                 'controller' => 'news',
                 'id' => 'news'
             ],
             'user' => [
-                'label' => 'Пользователи',
+                'label' => 'Users',
                 'route' => 'application',
                 'controller' => 'user',
                 'id' => 'users'
             ],
             'userWidget' => [
-                'label' => '',
-                'route' => 'application',
-                'class' => 'right',
-                'pages' => [
-                    'login' => [
-                        'label' => 'Войти',
+                        'label' => 'LogIn',
                         'route' => 'application',
                         'controller' => 'user',
                         'action' => 'login',
                         'id' => 'login'
-                    ]
-                ]
             ]
         ]
     ],

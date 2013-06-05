@@ -17,6 +17,8 @@ use Zend\View\Helper\Identity,
     Zend\Session\Container as SessionContainer,
     //Application\Entity\User,
     Zend\Form\Element;
+use Zend\View\Model\ViewModel;
+use Zend\View\Renderer\PhpRenderer;
  
  
 class LoginHelper extends Identity
@@ -34,7 +36,8 @@ class LoginHelper extends Identity
 //        parent::__invoke();
 
         $this->userInfo();
-        $this->loginForm();
+        $form = new \caUser\Form\LoginForm();
+        return $this->getView()->partial('/ca-user/user/login', array('form' => $form));
     }
     
     
@@ -46,17 +49,6 @@ class LoginHelper extends Identity
         return $this->sesscontainer;
     }
     
-    
-    protected function loginForm()
-    {
-     echo '<form method="post" action=\'\' name="login_form">
-            <p><input type="text" class="span3" name="eid" id="email" placeholder="Email"></p>
-            <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
-            <p><button type="submit" class="btn btn-primary">Sign in</button>
-                <a href="#">Forgot Password?</a>
-            </p>
-        </form>';   
-    }
     
     protected function userInfo()
     {

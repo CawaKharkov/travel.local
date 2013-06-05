@@ -1,63 +1,68 @@
-<?php
-$output = '<nav class="navbar">';
-$output .= '<div class="navbar-inner"><div class="container">';
-$output .= ' <ul class="nav">';
-foreach ($this->container as $page) {
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="<?php
+            echo $this->url('application');
+            ?>" class="brand"><img src="/img/logo.png" alt="Travel Around"/></a>
+               <?php
+               $output = '<nav id="mainMenu" class="clearfix">';
+               $output .= ' <ul>';
+               foreach ($this->container as $page) {
+                   if ($page->id == 'login') {
+                       $output .='<li>';
+                       $output .= '<a href="#loginModal" role="button" data-toggle="modal"><i class="icon-briefcase"></i>' . $page->getLabel() . '</a>';
+                       $output .='</li>';
+                       //}
+                   } else {
+                       $output .= '<li>';
+                       $output .= '<a href="' . $page->getHref() . '" class="' . $page->getClass() . '" >';
+                       switch ($page->id) {
+                           case 'home': {
+                                   $output .= '<i class="icon-home"></i>';
+                                   break;
+                               }
 
-    if ($page->class == 'right') {
-        $output .= '</li></ul>';
-        $output .= '<ul class="nav pull-right">';
+                           case 'desk': {
+                                   $output .= '<i class="icon-th-list"></i>';
+                                   break;
+                               }
+                           case 'reply': {
+                                   $output .= '<i class="icon-comment"></i>';
+                                   break;
+                               }
+                           case 'users': {
+                                   $output .= '<i class="icon-user"></i>';
+                                   break;
+                               }
+                           case 'news': {
+                                   $output .= '<i class="icon-globe"></i>';
+                                   break;
+                               }
+                       }
+                       $output .=$page->getLabel();
+                       $output .='</a>';
+                       $output .='</li>';
+                       $output .= '<li class="divider-vertical"></li>';
+                   }
+               }
+               ?>
+            <form accept-charset="UTF-8" action="" method="POST" class="navbar-form form-search pull-right" id="navBarSearch">
+                <div class="input-append">
+                    <input type="text" placeholder="Search" class="span2 search-query" name="q">
+                    <button class="btn" type="submit">Search</button>
+                </div>
+            </form>
+            <?php
+            $output .= '</li></ul></nav>';
 
-        $session = new Zend\Session\Container('user');
-        if ($session->username) {
-            $output .= '<li><a href="logout" role="button">Hi ' . $session->username.'</a></li>';
-            $output .= '<li><a href="#info_user" role="button" data-toggle="modal">User info</a></li>'; 
-        } else {
-            foreach ($page as $p) {
-                $output .='<li>';
-                $output .= '<a href="#loginModal" role="button" data-toggle="modal">Войти</a>';
-                $output .='</li>';
-            }
-        }
-        $output .='</ul>';
-        //}
-    } else {
-
-        $output .= '<li>';
-
-        //var_dump($page->label.'<i class="icon-file"></i>');die();
-        $output .= '<a href="' . $page->getHref() . '" class="' . $page->getClass() . '" >';
-        switch ($page->id) {
-            case 'desk': {
-                    $output .= '<i class="icon-th-list"></i>';
-                    break;
-                }
-            case 'reply': {
-                    $output .= '<i class="icon-envelope"></i>';
-                    break;
-                }
-            case 'users': {
-                    $output .= '<i class="icon-user"></i>';
-                    break;
-                }
-            case 'news': {
-                    $output .= '<i class="icon-globe"></i>';
-                    break;
-                }
-        }
-        $output .=$page->getLabel();
-        $output .='</a>';
-        $output .='</li>';
-        $output .= '<li class="divider-vertical"></li>';
-    }
-}
-$output .= '<form class="navbar-search pull-left">';
-$output .= '<input type="text" placeholder="Поиск" class="search-query">';
-$output .= '</form></li></ul></div></div></nav>';
-
-echo $output;
+            echo $output;
 //echo $this->userInfoHelper(); 
-?>
+            ?>
+            
+        </div>
+    </div>                        
+</div>
+
 <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">x</button>
@@ -65,17 +70,8 @@ echo $output;
 
     </div>
     <div class="modal-body">
+        <?php //var_dump(get_class_methods($this)); ?>
 <?php echo $this->loginHelper(); ?>
 
-    </div>
-    <div class="modal-footer">
-        New To MyWebsite.com?
-        <a href="<?php
-        echo $this->url(
-                'caUser', [
-            'controller' => 'user',
-            'action' => 'registration',
-        ])
-        ?>" class="btn btn-primary">Register</a>
     </div>
 </div>
