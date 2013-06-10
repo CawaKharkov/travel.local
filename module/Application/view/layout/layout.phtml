@@ -10,41 +10,356 @@
         <![endif]-->    
     </head>
     <body>
-        <?php
-            $this->navigation('Navigation')->menu()->setPartial('partials/mainMenu.phtml');
-            echo $this->navigation('Navigation')->menu()->render();
-        ?>                       
-        <!--//header-->    
-        <!-- Part 1: Wrap all page content here -->
-        <div id="wrap">
 
-            <!-- Begin page content -->
-            <div class="container">
+        <?php echo $this->partial('partials/header'); ?>
 
-                <div class="page-header">
-                    <h1>Travel club</h1>
+        <!-- globalWrapper --> 
+        <div id="globalWrapper">
+
+
+            <?php if($this->controllerName()=='Application\Controller\Index'){ echo $this->partial('partials/slider');} ?>
+
+
+            <!-- content -->
+            <section id="content" class="home">
+
+                <!-- three blocs -->
+                <section class="sliceTop"> 
+
+                    <div class="container">
+
+                        <div class="row">
+                            
+                            <div class="span12 drop-shadow lifted">
+
+                                <div class="topQuote">
+                                    <h1>
+                                        Welcome to <strong>OHMy! Website Template</strong>, clean, HTML5 & CSS3, and Fully Responsive.<span> Build your website in no time!</span>
+                                    </h1>
+                                </div>
+                                <div class="topBox clearfix">
+                                    <div class="bigIconsColumnsWrapper">
+
+
+                                        <article class="one_third">
+
+                                            <a href="" class="iconWrapper iconBig ch-item">
+                                                <i class="icon-heart"></i>
+                                                <div class="ch-info">
+                                                    <span> more info </span>                                           
+                                                </div>
+                                            </a>
+
+                                            <h2 class="smallHeading"><span>Oh my God, </span> We love you</h2>
+                                            <p>We love creating professional templates that make you think "Oh my God! i love Little Neko!".</p>                       
+
+                                        </article>
+
+                                        <article class="one_third">
+
+                                            <a href="" class="iconWrapper iconBig ch-item">
+                                                <i class="icon-users"></i>
+                                                <div class="ch-info">
+                                                    <span> more info </span>                                           
+                                                </div>
+                                            </a>
+
+
+
+                                            <h2 class="smallHeading">We work for you</h2>
+                                            <p>We pay special attention to customization options so you can easily make this template your own.</p>                     
+
+                                        </article>
+
+                                        <article class="one_third last">
+
+
+                                            <a href="" class="iconWrapper iconBig ch-item">
+                                                <i class="icon-ok"></i>
+                                                <div class="ch-info">
+                                                    <span> more info </span>                                           
+                                                </div>
+                                            </a>
+
+
+                                            <h2 class="smallHeading">We are good at to-do lists</h2>
+                                            <p>We are always looking to improve and support, listening to user feedback to build even better stuff.</p>                   
+
+                                        </article>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> 
+                <!-- three blocs -->
+
+
+                <!-- carousel works-->
+                <section class="slice">
+
+                    <div class="container">
+                        <div class="row">
+                            <?php echo $this->content; ?>
+                            <div class="span12">
+                                <h2><span>Featured </span>works</h2>
+                                <div class="divider"><span></span></div>  
+                            </div>
+                            <div class="span12">
+
+                                <div id="projectCarousel" class="carousel slide">
+
+                                    <div class="carousel-inner da-thumbs">
+
+                                        <div class="active item">
+                                            <div class="row">
+                                                <div  class="span3" >
+                                                    <article>
+
+                                                        <a href="images/works/work1-big.jpg" class="prettyPhoto">
+                                                            <section>
+                                                                <img alt="" src="images/works/work1.jpg" />
+                                                            </section>
+                                                            <div>
+                                                                <span class="iconWrapper iconLink"><i class="icon-search"></i></span> 
+                                                            </div>
+                                                        </a>
+                                                        <section class="projectInfo"><h3>Project 1</h3><p>Aspice, officio fungeris sine spe honoris amplioris</p></section>
+
+                                                    </article> </div>
+                                                <div  class="span3">
+                                                    <article>
+
+                                                        <a href="images/works/work8-big.jpg" class="prettyPhoto">
+                                                            <section>
+                                                                <img alt="" src="images/works/work8.jpg" />
+                                                            </section>
+                                                            <div>
+                                                                <span class="iconWrapper iconLink"><i class="icon-search"></i></span> 
+                                                            </div>
+                                                        </a>
+                                                        <section class="projectInfo"><h3>Project 2</h3><p>Aspice, officio fungeris sine spe honoris amplioris</p></section>
+                                                    </article> 
+                                                </div>
+                                                <div  class="span3">   
+
+
+                                                    <article>
+
+                                                        <a href="images/works/work3-big.jpg" class="prettyPhoto">
+                                                            <section>
+                                                                <img alt="" src="images/works/work3.jpg" />
+                                                            </section>
+                                                            <div>
+                                                                <span class="iconWrapper iconLink"><i class="icon-search"></i></span> 
+                                                            </div>
+                                                        </a>
+                                                        <section class="projectInfo"><h3>Project 3</h3><p>Aspice, officio fungeris sine spe honoris amplioris</p></section>
+                                                    </article>    
+                                                </div><div  class="span3" >
+                                                    <article>
+
+                                                        <a href="images/works/work2-big.jpg" class="prettyPhoto">
+                                                            <section>
+                                                                <img alt="" src="images/works/work2.jpg" />
+                                                            </section>
+                                                            <div>
+                                                                <span class="iconWrapper iconLink"><i class="icon-search"></i></span> 
+                                                            </div>
+                                                        </a>
+                                                        <section class="projectInfo"><h3>Project 4</h3><p>Aspice, officio fungeris sine spe honoris amplioris</p></section>
+                                                    </article> 
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="item">
+                                            <div class="row">
+
+
+                                                <div  class="span3" >
+                                                    <article>
+
+                                                        <a href="images/works/work4-big.jpg" class="prettyPhoto">
+                                                            <section>
+                                                                <img alt="" src="images/works/work4.jpg" />
+                                                            </section>
+                                                            <div>
+                                                                <span class="iconWrapper iconLink"><i class="icon-search"></i></span> 
+                                                            </div>
+                                                        </a>
+                                                        <section class="projectInfo"><h3>Project 5</h3><p>Aspice, officio fungeris sine spe honoris amplioris</p></section>
+                                                    </article> 
+
+
+                                                </div><div  class="span3" >
+                                                    <article>
+
+                                                        <a href="images/works/work5-big.jpg" class="prettyPhoto">
+                                                            <section>
+                                                                <img alt="" src="images/works/work5.jpg" />
+                                                            </section>
+                                                            <div>
+                                                                <span class="iconWrapper iconLink"><i class="icon-search"></i></span> 
+                                                            </div>
+                                                        </a>
+                                                        <section class="projectInfo"><h3>Project 6</h3><p>Aspice, officio fungeris sine spe honoris amplioris</p></section>
+                                                    </article> 
+
+                                                </div><div  class="span3" >
+                                                    <article>
+
+                                                        <a href="images/works/work6-big.jpg" class="prettyPhoto">
+                                                            <section>
+                                                                <img alt="" src="images/works/work6.jpg" />
+                                                            </section>
+                                                            <div>
+                                                                <span class="iconWrapper iconLink"><i class="icon-search"></i></span> 
+                                                            </div>
+                                                        </a>
+                                                        <section class="projectInfo"><h3>Project 7</h3><p>Aspice, officio fungeris sine spe honoris amplioris</p></section>
+                                                    </article>                                
+
+
+                                                </div><div  class="span3" >
+                                                    <article>
+
+                                                        <a href="images/works/work7-big.jpg" class="prettyPhoto">
+                                                            <section>
+                                                                <img alt="" src="images/works/work7.jpg" />
+                                                            </section>
+                                                            <div>
+                                                                <span class="iconWrapper iconLink"><i class="icon-search"></i></span> 
+                                                            </div>
+                                                        </a>
+                                                        <section class="projectInfo"><h3>Project 8</h3><p>Aspice, officio fungeris sine spe honoris amplioris</p></section>
+                                                    </article> 
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                    <a class="left carousel-control" href="#projectCarousel" data-slide="prev"><i class="icon-left-circle"></i></a>
+                                    <a class="right carousel-control" href="#projectCarousel" data-slide="next"><i class="icon-right-circle"></i></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- carousel works-->
+
+
+
+
+
+
+
+                <!-- Call to action -->
+                <section class="slice">
+                    <div  class="container">
+                        <div class="row-fluid callToActionBoxed">
+                            <div class="span7">
+                                <div class="ctaText">
+                                    <h3>Easy and fast customization!</h3>
+                                    <p><strong>OH MY! Template</strong> is perfect for simple and clean presentation of your business. It is SEO ready, build on Twitter Bootstrap Framework.</p>
+                                </div>
+                            </div>
+                            <div class="span5"> 
+                                <div class="btnWrapper">
+                                    <a href="http://themeforest.net/item/ohmy-html5-css3-bootstrap-website-template/3589661?ref=Little-Neko" class="iconBtn" title="Buy This awesome theme"><i class="icon-download"></i>Buy this template now!</a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Call to action -->
+
+
+
+            </section> 
+            <!-- content -->
+
+            <!-- footer -->
+            <footer class="footer1">
+                <div class="container" id="footer">
+                    <div class="row">
+                        <div class="span3 testimonialWidget">
+                            <h2>Testimonial</h2>
+                            <div class="divider"><span></span></div>
+                            <p>Little Neko is a web design and development studio.<br />
+                                We build responsive HTML5 and CSS3 templates, integrating best web design practises and up-to-date web technologies to create great user experiences. We love what we do and we hope you too ! </p>
+                        </div>
+                        <div class="span3 tweetWidget">
+                            <h2>Latest tweets</h2>
+                            <div class="divider"><span></span></div>
+                            <div class="tweet"></div>
+                        </div>
+
+
+                        <div class="span3 contactWidget">
+                            <h2>Contact us</h2>
+                            <div class="divider"><span></span></div>
+                            <address>
+                                <strong>Little NEKO</strong>
+                                <p>
+                                    <i class="icon-location"></i>&nbsp;77 Mass. Ave., E14/E15<br/>
+                                    Cambridge, MA 02139-4307 USA
+                                </p>
+                                <p>
+                                    <i class="icon-phone"></i>&nbsp;615.987.1234
+                                </p>
+                                <p>
+                                    <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">little@little-neko.com</a>
+                                </p>
+                            </address>
+                        </div>
+
+
+                        <div class="span3 sociallWidget">
+                            <h2>Follow us</h2>
+                            <div class="divider"><span></span></div>
+                            <ul class="socialNetwork nav">
+                                <li><a href="#" class="icon-rss socialIcon tips"  title="Our rss feed"><span>rss feed</span></a></li>
+                                <li><a href="#" class="icon-facebook socialIcon tips"  title="follow us on Facebook"><span>facebook</span></a></li>
+                                <li><a href="#" class="icon-twitter-bird socialIcon tips"  title="follow us on Twitter"><span>twitter</span></a></li>
+                                <li><a href="#" class="icon-gplus socialIcon tips"  title="follow us on Google +"><span>google +</span></a></li>
+                                <li><a href="#" class="icon-instagram socialIcon tips"  title="follow us on Instagram"><span>instagram</span></a></li>
+                                <li><a href="#" class="icon-linkedin socialIcon tips"  title="follow us on Linkedin"><span>linkedin</span></a></li>
+                                <li><a href="#" class="icon-pinterest-circled socialIcon tips"  title="follow us on Pinterest"><span>Pinterest</span></a></li>
+                            </ul>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed lectus in turpis consequat pharetra. Nulla velit purus, vestibulum sit amet ultrices eget, ultricies ut massa. Cras ac nulla at arcu vehicula hendrerit. </p>
+                        </div>
+                    </div>
                 </div>
-               
-                <?php //echo $this->partial('/partials/sideMenu')  ?>
-                <!--page_container-->
-                <?php echo $this->content; ?>
-                <!--//page_container-->
-            </div>
+            </footer>
 
-            <div id="push"></div>
+            <footer class="footer2" id="footerRights">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12">
+                            <p>Copyright В© 2012 Little NEKO / All rights reserved.</p>
+                           
+                        </div>
+                    </div>
+                </div>
+
+            </footer>
+            <!-- footer -->
         </div>
+        <!-- Global wrapper -->
 
 
-        <?php
-        $this->navigation('Navigation')->menu()->setPartial('partials/breadcrumbs.phtml');
-        echo $this->navigation('Navigation')->menu()->render();
-        ?>
-        <!--footer-->
-        <?php echo $this->partial('/partials/footer', array('title' => 'Travel club')) ?>
-        <!--//footer-->    
-        <?php
-        echo $this->headScript();
-        ?>
+        <?php echo $this->headScript(); ?>
     </body>
 </html>
 

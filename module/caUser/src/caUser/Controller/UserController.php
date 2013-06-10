@@ -15,6 +15,7 @@ use caUser\Form\RegistrationValidator;
 use caUser\Form\LoginValidator;
 use caUser\Form\RestorePasswordForm;
 use caUser\Form\RestorePasswordValidator;
+use Zend\Session\Container;
 
 /**
  * Class UserController
@@ -55,9 +56,15 @@ class UserController extends AbstractController
                         $form->setMessages($error);
                     } else
                     {
-                       return  $this->redirect()->toRoute(
+
+                        $session = new Container('user');
+                        $session->social_auth = false;
+                        $session->auth = true;
+                        $session->id = $service->getCurrentUser()->getId();
+                        $session->username = $service->getCurrentUser()->username;
+                        return  $this->redirect()->toRoute(
                            $causerConf['options']['redirect']['route']
-                       );
+                        );
                     }
                 }
             }

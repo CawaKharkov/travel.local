@@ -12,33 +12,20 @@ namespace Application;
 return array(
     'router' => array(
         'routes' => array(
-            'application' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
-                        'controller' => 'Index',
-                        'action' => 'index',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
+                    'application' => array(
                         'type' => 'Segment',
                         'options' => array(
-                            'route' => '[:controller][/:action]',
+                            'route' => '/[:controller][/:action]',
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*/?',
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*/?',
                             ),
                             'defaults' => array(
+                                '__NAMESPACE__' => 'Application\Controller',
                                 'controller' => 'Application\Controller\Index',
                                 'action' => 'index'
                             ),
                         ),
-                    ),
-                ),
             ),
             'error' => array(
                 'type' => 'Segment',
@@ -85,6 +72,8 @@ return array(
             'Application\Controller\Test' => 'Application\Controller\TestController',
             'Application\Controller\News' => 'Application\Controller\NewsController',
             'Application\Controller\User' => 'Application\Controller\UserController',
+            'Application\Controller\Upload' => 'Application\Controller\UploadController',
+            'Application\Controller\Upload' => 'Application\Controller\UploadController',
         ),
         'alias' =>[
             'Error' => 'Application\Controller\ErrorController',
@@ -124,51 +113,45 @@ return array(
     'navigation' => [
         'default' => [
             'logo' => [
-                'label' => 'Travel around',
+                'label' => 'Home',
                 'route' => 'application',
-               'class' => 'brand',
+                'id' => 'home'
             ],
            
             'profile' => [
-                'label' => 'Обьявления',
-                'route' => 'application/default',
+                'label' => 'Billboard',
+                'route' => 'application',
                 'controller' => 'desk',
                 'id' => 'desk',
             ],
             'reply' => [
-                'label' => 'Ответы',
-                'route' => 'application/default',
+                'label' => 'Answers',
+                'route' => 'application',
                 'controller' => 'user',
                 'action' => 'reply',
                 'id' => 'reply'
             ],
             'news' => [
-                'label' => 'Новости',
-                'route' => 'application/default',
+                'label' => 'News',
+                'route' => 'application',
                 'controller' => 'news',
                 'id' => 'news'
             ],
             'user' => [
-                'label' => 'Пользователи',
-                'route' => 'application/default',
+                'label' => 'Users',
+                'route' => 'application',
                 'controller' => 'user',
                 'action' => 'users',
                 'id' => 'users'
             ],
             'userWidget' => [
-                'label' => '',
-                'route' => 'application/default',
-                'class' => 'right',
-                'pages' => [
-                    'login' => [
-                        'label' => 'Войти',
-                        'route' => 'causer',
-                        'controller' => 'user',
-                        'action' => 'login',
-                        'id' => 'login'
-                    ]
-                ]
+                'label' => 'LogIn',
+                'route' => 'application',
+                'controller' => 'user',
+                'action' => 'login',
+                'id' => 'login'
             ]
         ]
-    ],
+    ]
+
 );

@@ -1,0 +1,9 @@
+<!-- header -->
+<header id="mainHeader" class="clearfix">
+<?php
+        //echo $this->partial('/partials/main_menu')
+        $this->navigation('Navigation')->menu()->setPartial('partials/mainMenu.phtml');
+        echo $this->navigation('Navigation')->menu()->render();
+        ?>   
+</header>
+<!-- header --> 

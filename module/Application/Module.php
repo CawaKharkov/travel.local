@@ -16,13 +16,21 @@ use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 use Zend\Mvc\MvcEvent;
+use caUser\View\Helper\ControllerName;
 
 class Module implements AutoloaderProviderInterface
 {
     public function onBootstrap(EventInterface $e)
     {
         $e->getApplication()->getServiceManager()->get('translator');
-        $eventManager        = $e->getApplication()->getEventManager();
+        $eventManager = $e->getApplication()->getEventManager();
+
+        $e->getApplication()->getServiceManager()->get('viewhelpermanager')->setFactory('controllerName', function($sm) use ($e) {
+                    $viewHelper = new ControllerName($e->getRouteMatch());
+                    return $viewHelper;
+                });
+
+
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         $eventManager->attach('render', array($this, 'initView'));
@@ -57,13 +65,36 @@ class Module implements AutoloaderProviderInterface
         $helperManager->get('headlink')
                         ->appendStylesheet('/css/bootstrap.css')
                         ->appendStylesheet('/css/bootstrap-responsive.css')
-                        ->appendStylesheet('/css/main.css');
+                        ->appendStylesheet('/css/main.css')
+                        ->appendStylesheet('/js-plugin/pretty-photo/css/prettyPhoto.css')
+                        ->appendStylesheet('/js-plugin/rs-plugin/css/settings.css')
+                        ->appendStylesheet('/js-plugin/hoverdir/css/style.css')
+                        ->appendStylesheet('/font-icons/custom-icons/css/custom-icons.css')
+                        ->appendStylesheet('/font-icons/custom-icons/css/custom-icons-ie7.css')
+                        ->appendStylesheet('/css/layout.css')
+                        ->appendStylesheet('/css/light.css');
+                        //->appendStylesheet('/css/colors.css');
+        
         
         $helperManager->get('headscript')->appendFile('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
-                                         ->appendFile('/js/bootstrap.min.js')
                                          ->appendFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js')
+                                         ->appendFile('/js/bootstrap.js')
                                          ->appendFile('/js/main.js')
-                                         ->appendFile('/js/admin.js');
+                                         ->appendFile('/js/admin.js')
+                                         ->appendFile('/js/custom.js')
+                                         ->appendFile('/js/jquery.form.js')
+                                         ->appendFile('/js/thirdparty/modernizr-2.6.1.min.js')
+                                         ->appendFile('/js/thirdparty/bootstrap.file-input.js')
+                                         ->appendFile('/js-plugin/respond/respond.min.js')
+                                         ->appendFile('/js-plugin/easing/jquery.easing.1.3.js')
+                                         ->appendFile('/js-plugin/pretty-photo/js/jquery.prettyPhoto.js')
+                                         ->appendFile('/js-plugin/jquery-cookie/jquery.cookie.js')
+                                         ->appendFile('/js-plugin/seaofclouds-tweet/tweet/jquery.tweet.js')
+                                         ->appendFile('/js-plugin/hoverdir/jquery.hoverdir.js')
+                                         ->appendFile('/js-plugin/rs-plugin/js/jquery.themepunch.plugins.min.js')
+                                         ->appendFile('/js-plugin/rs-plugin/js/jquery.themepunch.revolution.min.js');
+
+        
     }
     
     
@@ -77,7 +108,8 @@ class Module implements AutoloaderProviderInterface
     {
         return array(
             'invokables' => array(
-
+                //'loginHelper' => 'Application\View\Helper\LoginHelper',
+                'userInfoHelper' => 'caUser\View\Helper\UserInfoHelper'
             ),
         );
     }

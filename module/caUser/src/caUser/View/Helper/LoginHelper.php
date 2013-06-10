@@ -1,52 +1,57 @@
 <?php
+
+/*
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
+
 /**
- * namespace
+ * Description of LoginHelper
+ *
+ * @author Cawa
  */
+
 namespace caUser\View\Helper;
 
-use Zend\View\Helper\AbstractHelper;
+use Zend\View\Helper\Identity,
+    Zend\Session\Container as SessionContainer,
+    //Application\Entity\User,
+    Zend\Form\Element;
 use Zend\View\Model\ViewModel;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\View\Renderer\PhpRenderer;
 
-/**
- * Class LangHelper
- * @package caUser\View\Helper
- */
-class LoginHelper extends AbstractHelper implements ServiceLocatorAwareInterface
+
+class LoginHelper extends Identity
 {
 
-    protected $serviceLocator;
+    protected $sesscontainer;
 
-    public function __construct($serviceLocator)
+    public function __construct()
     {
-        $this->serviceLocator = $serviceLocator;
-    }
-
-    /**
-     * Set service locator
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     */
-    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
-    {
-        $this->serviceLocator = $serviceLocator;
-    }
-
-    /**
-     * Get service locator
-     *
-     * @return ServiceLocatorInterface
-     */
-    public function getServiceLocator()
-    {
-        return $this->serviceLocator;
+        $this->getSessContainer();
     }
 
     public function __invoke()
     {
-        $view = new ViewModel();
-        $view->setTemplate('/ca-user/helpers/loginhelper.phtml');
-        return $this->getView()->render($view);
+// parent::__invoke();
+
+        $this->userInfo();
+        $form = new \caUser\Form\LoginForm();
+        return $this->getView()->partial('/ca-user/user/login', array('form' => $form));
+    }
+
+
+    protected function getSessContainer()
+    {
+        if (!$this->sesscontainer) {
+            $this->sesscontainer = new SessionContainer('user');
+        }
+        return $this->sesscontainer;
+    }
+
+
+    protected function userInfo()
+    {
+
     }
 }
