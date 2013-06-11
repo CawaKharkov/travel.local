@@ -7,6 +7,9 @@
     font-style: oblique;
 }
 
+#content{
+    min-height: 600px;
+}
 
 .brand {
     font-family: Lobster!important;
@@ -17,45 +20,31 @@
     font-family: Lobster!important;
     font-style:normal;
 }
+
+.breadcrumb{
+    background: none;
+    font-family: Lobster!important;
+    font-size: 1.6em;
+}
 .breadcrumb a{
     color: white;
 }
-.breadcrumb {
-    background: rgb(64,150,238);
-    background: -moz-linear-gradient(left,  rgba(64,150,238,1) 0%, rgba(96,171,248,1) 56%, rgba(122,188,255,1) 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(64,150,238,1)), color-stop(56%,rgba(96,171,248,1)), color-stop(100%,rgba(122,188,255,1)));
-    background: -webkit-linear-gradient(left,  rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%);
-    background: -o-linear-gradient(left,  rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%);
-    background: -ms-linear-gradient(left,  rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%);
-    background: linear-gradient(to right,  rgba(64,150,238,1) 0%,rgba(96,171,248,1) 56%,rgba(122,188,255,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#7abcff',GradientType=1 );
 
-}
 .breadcrumb a:hover{
     color: black;
     text-decoration: none;
 }
 .breadcrumb p{
-    font-size: 1.2em;
     color: black;
 }
-.breadcrumb{
 
-    font-family: Lobster!important;
-}
 .breadcrumb li a{
     font-style: normal;
 }
-
-
-/* Set the fixed height of the footer here */
-
-
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
+#footer .breadcrumb .divider{
+    background: none;
+    border-bottom: none!important;
+}
 
 
 #RegistrationForm span {

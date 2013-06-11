@@ -36,7 +36,8 @@ class ImageUploadForm extends Form
         $file = new Element\File('image-file');
         $file->setLabel('Select Image')
              ->setAttribute('id', 'image-file')
-             ->setAttribute('title', 'Browse');
+             ->setAttribute('title', 'Browse')
+             ->setAttribute('class', 'fileupload');
         $this->add($file);
         
         $this->add(array(
@@ -69,7 +70,9 @@ class ImageUploadForm extends Form
         $fileInput->getFilterChain()->attachByName(
             'filerenameupload',
             array(
-                'target' => BASE_DIR . '\public\data\images_upload\image.jpg',
+                'target' => BASE_DIR . DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.
+                                        'data'.DIRECTORY_SEPARATOR.'images_upload'.
+                                        DIRECTORY_SEPARATOR.'image.jpg',
                 'randomize' => true,
             )
         );

@@ -88,7 +88,6 @@ class Module implements AutoloaderProviderInterface
                                          ->appendFile('/js-plugin/respond/respond.min.js')
                                          ->appendFile('/js-plugin/easing/jquery.easing.1.3.js')
                                          ->appendFile('/js-plugin/pretty-photo/js/jquery.prettyPhoto.js')
-                                         ->appendFile('/js-plugin/jquery-cookie/jquery.cookie.js')
                                          ->appendFile('/js-plugin/seaofclouds-tweet/tweet/jquery.tweet.js')
                                          ->appendFile('/js-plugin/hoverdir/jquery.hoverdir.js')
                                          ->appendFile('/js-plugin/rs-plugin/js/jquery.themepunch.plugins.min.js')

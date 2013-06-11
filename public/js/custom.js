@@ -1,29 +1,3 @@
-
-
-/*************** COLORS TO BE ERASED WHEN INSTALLING THE THEME ***********/
- 
-$(document).ready(function() {   
-    
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "js-plugin/jquery-cookie/jquery.cookie.js";
-    $("body").append(s);  
-
-    if($.cookie("css")) {
-        $("#colors").attr("href",$.cookie("css"));
-    }
-    $(".switcher li a").click(function() { 
-		
-        $("#colors").attr("href",$(this).attr("href"));
-        $.cookie("css",$(this).attr("href"));
-        return false;
-    });
- 
-});
-
-/*************** COLORS TO BE ERASED WHEN INSTALLING THE THEME ***********/
-
-
 /*************** REPLACE WITH YOUR OWN UA NUMBER ***********/
 var UA = 'UA-36433263-2';
 /*************** REPLACE WITH YOUR OWN UA NUMBER ***********/

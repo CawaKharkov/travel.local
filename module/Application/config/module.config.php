@@ -12,20 +12,20 @@ namespace Application;
 return array(
     'router' => array(
         'routes' => array(
-                    'application' => array(
-                        'type' => 'Segment',
-                        'options' => array(
-                            'route' => '/[:controller][/:action]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*/?',
-                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*/?',
-                            ),
-                            'defaults' => array(
-                                '__NAMESPACE__' => 'Application\Controller',
-                                'controller' => 'Application\Controller\Index',
-                                'action' => 'index'
-                            ),
-                        ),
+            'application' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/[:controller][/:action]',
+                    'constraints' => array(
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*/?',
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*/?',
+                    ),
+                    'defaults' => array(
+                        '__NAMESPACE__' => 'Application\Controller',
+                        'controller' => 'Application\Controller\Index',
+                        'action' => 'index'
+                    ),
+                ),
             ),
             'error' => array(
                 'type' => 'Segment',
@@ -46,6 +46,11 @@ return array(
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+            'my_memcached_alias' => function() {
+                $memcached = new \Memcached();
+                $memcached->addServer('localhost', 11211);
+                return $memcached;
+            },
         ),
         'alias' => array(
             'Zend\Authentication\AuthenticationService' => 'AuthService',
@@ -75,7 +80,7 @@ return array(
             'Application\Controller\Upload' => 'Application\Controller\UploadController',
             'Application\Controller\Upload' => 'Application\Controller\UploadController',
         ),
-        'alias' =>[
+        'alias' => [
             'Error' => 'Application\Controller\ErrorController',
         ]
     ),
@@ -100,7 +105,7 @@ return array(
         'driver' => array(
             __NAMESPACE__ . '_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'array',
+                'cache' => 'memcached',
                 'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
             ),
             'orm_default' => array(
@@ -108,7 +113,10 @@ return array(
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
                 )
             )
-        )
+        ),
+        'cache' => array(
+            'instance' => 'my_memcached_alias',
+        ),
     ),
     'navigation' => [
         'default' => [
@@ -117,7 +125,6 @@ return array(
                 'route' => 'application',
                 'id' => 'home'
             ],
-           
             'profile' => [
                 'label' => 'Billboard',
                 'route' => 'application',
@@ -144,11 +151,11 @@ return array(
                 'id' => 'users'
             ],
             'userWidget' => [
-                        'label' => 'LogIn',
-                        'route' => 'application',
-                        'controller' => 'user',
-                        'action' => 'login',
-                        'id' => 'login'
+                'label' => 'LogIn',
+                'route' => 'application',
+                'controller' => 'user',
+                'action' => 'login',
+                'id' => 'login'
             ]
         ]
     ],
