@@ -1,61 +1,35 @@
-<?php echo $this->doctype(); ?>
-<html lang="en">
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8">
         <?php echo $this->headTitle() ?>
         <?php echo $this->headMeta() ?>
 
-        <?php echo $this->headLink(); ?>
-        <!--[if lt IE 9]>
-                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->    
+        <?php echo $this->partial('partials/headscript'); ?>
     </head>
-    <body>
-        <?php echo $this->partial('partials/header'); ?>
+    <body class="wide">
+        <div id="fb-root"></div>
+        <div class="layout">
+            <!-- Main Header -->
+            <?php echo $this->partial('partials/header'); ?>
 
-        <!-- globalWrapper --> 
-        <div id="globalWrapper"> 
-
-
-            <?php if($this->controllerName()=='Application\Controller\Index'){ echo $this->partial('partials/slider');  } ?>
-
-
-            <!-- content -->
-            <section id="content" class="home">
-                <?php if($this->controllerName()=='Application\Controller\Index'){ echo $this->partial('partials/TopInfo'); }else{echo '<br/><br/>';} ?>
-               
-         
-                <!-- three blocs -->
-
-
-
-
-
-
+            <!-- End Main Header -->
+            <div class="main">
                 <div class="container">
                     <div class="row">
-                           
-                         <?php echo $this->content; ?>
-                        </div>
-                 </div>
-
-
-                <!-- Call to action -->
-                <section class="slice">
-                
-                </section>
-                <!-- Call to action -->
-
-
-
-            </section> 
-            <!-- content -->
+                            <div class="span8">
+                                <!-- Content -->
+                                <div class="content">
+                                    <?php echo $this->content; ?>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+                <!-- End Boxes -->
                 <?php echo $this->partial('/partials/footer'); ?>
-        </div>
-        <!-- Global wrapper -->
-
-
-        <?php echo $this->headScript(); ?>
+            </div>
+            <a href="#" class="scroll-top"><i class="icon-chevron-up"></i></a>
+            <?php echo $this->partial('partials/footerscript'); ?>
     </body>
 </html>
-

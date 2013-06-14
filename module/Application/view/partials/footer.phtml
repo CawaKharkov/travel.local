@@ -1,71 +1,130 @@
-            <!-- footer -->
-            <footer class="footer1">
-                <div class="container" id="footer">
-                       
-                    <div class="row">
-                        <?php
-                          // $this->navigation('Navigation')->menu()->setPartial('partials/breadcrumbs.phtml');
-                           //echo $this->navigation('Navigation')->menu()->render();
-                         ?>
-                        <div class="span3 testimonialWidget">
-                            <h2>Testimonial</h2>
-                            <div class="divider"><span></span></div>
-                            <p>Little Neko is a web design and development studio.<br />
-                                We build responsive HTML5 and CSS3 templates, integrating best web design practises and up-to-date web technologies to create great user experiences. We love what we do and we hope you too ! </p>
-                        </div>
-                        <div class="span3 tweetWidget">
-                            <h2>Latest tweets</h2>
-                            <div class="divider"><span></span></div>
-                            <div class="tweet"></div>
-                        </div>
-
-
-                        <div class="span3 contactWidget">
-                            <h2>Contact us</h2>
-                            <div class="divider"><span></span></div>
-                            <address>
-                                <strong>Little NEKO</strong>
-                                <p>
-                                    <i class="icon-location"></i>&nbsp;77 Mass. Ave., E14/E15<br/>
-                                    Cambridge, MA 02139-4307 USA
-                                </p>
-                                <p>
-                                    <i class="icon-phone"></i>&nbsp;615.987.1234
-                                </p>
-                                <p>
-                                    <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:little@little-neko.com">little@little-neko.com</a>
-                                </p>
-                            </address>
-                        </div>
-
-
-                        <div class="span3 sociallWidget">
-                            <h2>Follow us</h2>
-                            <div class="divider"><span></span></div>
-                            <ul class="socialNetwork nav">
-                                <li><a href="#" class="icon-rss socialIcon tips"  title="Our rss feed"><span>rss feed</span></a></li>
-                                <li><a href="#" class="icon-facebook socialIcon tips"  title="follow us on Facebook"><span>facebook</span></a></li>
-                                <li><a href="#" class="icon-twitter-bird socialIcon tips"  title="follow us on Twitter"><span>twitter</span></a></li>
-                                <li><a href="#" class="icon-gplus socialIcon tips"  title="follow us on Google +"><span>google +</span></a></li>
-                                <li><a href="#" class="icon-instagram socialIcon tips"  title="follow us on Instagram"><span>instagram</span></a></li>
-                                <li><a href="#" class="icon-linkedin socialIcon tips"  title="follow us on Linkedin"><span>linkedin</span></a></li>
-                                <li><a href="#" class="icon-pinterest-circled socialIcon tips"  title="follow us on Pinterest"><span>Pinterest</span></a></li>
-                            </ul>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed lectus in turpis consequat pharetra. Nulla velit purus, vestibulum sit amet ultrices eget, ultricies ut massa. Cras ac nulla at arcu vehicula hendrerit. </p>
+                <!-- Footer -->
+                <footer>
+                    <!-- Footer Block -->
+                    <div class="footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="span3">
+                                    <!-- Logo -->
+                                    <div class="logo">
+                                        <a href="index-2.html"><img id="logo-footer" src="images/logos/logo_footer_default.png" alt="City Nightlife" /></a>
+                                    </div>
+                                    <!-- End Logo -->
+                                </div>
+                                <div class="span2">
+                                    <!-- Menus -->
+                                    <h3><i class="icon-plus-sign"></i> Register</h3>
+                                    <ul class="menu-footer unstyled register">
+                                        <li class="active"><a href="#"><i class="icon-plus"></i> Event</a></li>
+                                        <li><a href="#"><i class="icon-plus"></i> Company</a></li>
+                                        <li><a href="#"><i class="icon-plus"></i> Promotion</a></li>
+                                        <li><a href="#"><i class="icon-plus"></i> Job</a></li>
+                                        <li><a href="#"><i class="icon-plus"></i> Recipe</a></li>
+                                    </ul>
+                                    <h3><i class="icon-info-sign"></i> Help &amp; Support</h3>
+                                    <ul class="menu-footer unstyled suport">
+                                        <li><a href="#"><i class="icon-globe"></i> Wiki</a></li>
+                                        <li><a href="#"><i class="icon-bullhorn"></i> Contact Support</a></li>
+                                    </ul>
+                                    <!-- End Menus -->
+                                </div>
+                                <div class="span3">
+                                    <!-- About us -->
+                                    <h3><i class="icon-book"></i> About Us</h3>
+                                    <p>The City Nightlife is a Premium Theme with HTML5, CSS3, jQuery, Sliders, Widgets working together to build your portal site, business site or personal site. Developed by <a href="http://www.atomtech.com.br/" target="_blank">AtomTech</a>.</p>
+                                    <div class="count">
+                                        <div class="pull-left">
+                                            <h6><i class="icon-download"></i> Download</h6>
+                                            <h4>18.110.897</h4>
+                                        </div>
+                                        <div class="pull-left">
+                                            <h6><i class="icon-user"></i> Members</h6>
+                                            <h4>621.301</h4>
+                                        </div>
+                                    </div>
+                                    <address>
+                                        <strong>Address</strong><br>
+                                        <i class="icon-map-marker"></i> 795 Folsom Ave, Suite 600<br>
+                                        Brazil, DF - 72015.520<br>
+                                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                                    </address>
+                                    <!-- End About us -->
+                                </div>
+                                <div class="span4">
+                                    <h3><i class="icon-comments-alt"></i> Testimonials</h3>
+                                    <!-- Testimonials Widget -->
+                                    <div id="testimonials" class="testimonials flexslider" data-controlnav="false" data-animationloop="false" data-directionnav="true">
+                                        <ul class="slides unstyled">
+                                            <li>
+                                                <blockquote>
+                                                    <p><i class="icon-quote-left"></i> Velit consequuntur a nemo est architecto adipisci officiis vero dolorum expedita qui doloremque itaque voluptatem quas rem vitae fuga perspiciatis!</p>
+                                                    <small><cite title="Source Title">John Smith</cite>, Company CEO</small>
+                                                </blockquote>
+                                            </li>
+                                            <li>
+                                                <blockquote>
+                                                    <p><i class="icon-quote-left"></i> Ullam consequatur vitae sit molestias recusandae sequi nisi minima ex numquam dolore autem qui. Aliquid dolorem qui exercitationem ipsa quo ut quae?</p>
+                                                    <small><cite title="Source Title">Jane Roe</cite>, Company Support</small>
+                                                </blockquote>
+                                            </li>
+                                            <li>
+                                                <blockquote>
+                                                    <p><i class="icon-quote-left"></i> Blanditiis harum natus dignissimos magnam expedita ea est repellendus similique numquam esse quam eligendi nisi minus soluta nesciunt mollitia autem.</p>
+                                                    <small><cite title="Source Title">Jackie Joe</cite>, Company CEO</small>
+                                                </blockquote>
+                                            </li>
+                                            <li>
+                                                <blockquote>
+                                                    <p><i class="icon-quote-left"></i> Ipsam perferendis pariatur atque esse nihil minus maiores? Id hic eos sed consectetur quibusdam perspiciatis inventore. Vero officia delectus non.</p>
+                                                    <small><cite title="Source Title">John Doe</cite>, Company Programmer</small>
+                                                </blockquote>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- End Testimonials Widget -->
+                                    <!-- Social Widget -->
+                                    <ul class="social-icons inline">
+                                        <li><a href="#" data-toggle="tooltip" title="Facebook" class="facebook"><i class="icon-facebook"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="Twitter" class="twitter"><i class="icon-twitter"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="Google+" class="google-plus"><i class="icon-google-plus"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="LinkedIn" class="linkedin"><i class="icon-linkedin"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="Pinterest" class="pinterest"><i class="icon-pinterest"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="GitHub" class="github"><i class="icon-github-alt"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="Vimeo" class="vimeo"><i class="icon-vimeo"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="Dribbble" class="dribbble"><i class="icon-dribbble"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="E-mail" class="email"><i class="icon-envelope"></i></a></li>
+                                        <li><a href="#" data-toggle="tooltip" title="RSS" class="rss"><i class="icon-rss"></i></a></li>
+                                    </ul>
+                                    <!-- End Social Widget -->
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
-
-            <footer class="footer2" id="footerRights">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <p>Copyright В© 2012 Little NEKO / All rights reserved.</p>
-                           
+                    <!-- End Footer Block -->
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <div class="container">
+                            <div class="row">
+                                <div class="span6">
+                                    <p>
+                                        Copyright &copy; 2013 City Nightlife - All Rights Reserved. <span class="author">Design by <a href="#">AtomTech</a>.</span>
+                                    </p>
+                                </div>
+                                <div class="span6">
+                                    <div class="hidden-phone">
+                                        <!-- Footer Menu -->
+                                        <ul class="unstyled">
+                                            <li class="active"><a href="index-2.html">Home</a></li>
+                                            <li><a href="#">Entertainment</a></li>
+                                            <li><a href="#">Cities Guide</a></li>
+                                            <li><a href="#">Promotions</a></li>
+                                            <li><a href="#">Jobs</a></li>
+                                        </ul>
+                                        <!-- End Footer Menu -->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
-            <!-- footer -->
+                    <!-- End Copyright -->
+                </footer>

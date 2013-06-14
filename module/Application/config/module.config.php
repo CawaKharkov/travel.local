@@ -46,11 +46,11 @@ return array(
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
-            'my_memcached_alias' => function() {
+            /*'my_memcached_alias' => function() {
                 $memcached = new \Memcached();
                 $memcached->addServer('localhost', 11211);
                 return $memcached;
-            },
+            },*/
         ),
         'alias' => array(
             'Zend\Authentication\AuthenticationService' => 'AuthService',
@@ -105,7 +105,7 @@ return array(
         'driver' => array(
             __NAMESPACE__ . '_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'memcached',
+                //'cache' => 'memcached',
                 'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
             ),
             'orm_default' => array(

@@ -62,6 +62,7 @@ class Module implements AutoloaderProviderInterface
         
         $helperManager->get('headtitle')->set('TravelAround '. 'Клуб путешественников')->setSeparator(' - ')->setAutoEscape(false);
         
+        /*
         $helperManager->get('headlink')
                         ->appendStylesheet('/css/bootstrap.css')
                         ->appendStylesheet('/css/bootstrap-responsive.css')
@@ -91,8 +92,31 @@ class Module implements AutoloaderProviderInterface
                                          ->appendFile('/js-plugin/seaofclouds-tweet/tweet/jquery.tweet.js')
                                          ->appendFile('/js-plugin/hoverdir/jquery.hoverdir.js')
                                          ->appendFile('/js-plugin/rs-plugin/js/jquery.themepunch.plugins.min.js')
-                                         ->appendFile('/js-plugin/rs-plugin/js/jquery.themepunch.revolution.min.js');
+                                         ->appendFile('/js-plugin/rs-plugin/js/jquery.themepunch.revolution.min.js');*/
+        $helperManager->get('headlink')
+                        ->appendStylesheet('/css/bootstrap.css')
+                        ->appendStylesheet('/css/bootstrap-responsive.css')
+                        ->appendStylesheet('/css/font-awesome.min.css')
+                        ->appendStylesheet('/css/font-awesome-corp.css')
+                        ->appendStylesheet('/css/font-awesome-ext.css')
+                        ->appendStylesheet('/css/font-awesome-social.css')
+                        ->appendStylesheet('/css/menu/core.css')
+                        ->appendStylesheet('/css/menu/styles/lsteel-blue.css')
+                        ->appendStylesheet('/css/menu/effects/slide.css')
+                        ->appendStylesheet('/css/fullwidth.css')
+                        ->appendStylesheet('/css/rs-plugin/css/settings.css')
+                        ->appendStylesheet('/css/captions.css')
+                        ->appendStylesheet('/css/animate.min.css')
+                        ->appendStylesheet('/css/prettify.css')
+                        ->appendStylesheet('/css/docs.css')
+                        ->appendStylesheet('/css/prettyPhoto.css')
+                        ->appendStylesheet('/css/main.css')
+                        ->appendStylesheet('/css/skins/default.css');
 
+        $helperManager->get('headscript')->appendFile('/js/vendor/modernizr.min.js')
+                                         ->appendFile('/js/vendor/jquery.min.js')
+                                         ->appendFile('/js/vendor/bootstrap.min.js');
+                                        // ->appendFile('/js/vendor/retina.js');
         
     }
     

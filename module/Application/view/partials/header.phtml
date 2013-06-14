@@ -1,9 +1,409 @@
-<!-- header -->
-<header id="mainHeader" class="clearfix">
-<?php
-        //echo $this->partial('/partials/main_menu')
-        $this->navigation('Navigation')->menu()->setPartial('partials/mainMenu.phtml');
-        echo $this->navigation('Navigation')->menu()->render();
-        ?>   
-</header>
-<!-- header --> 
+            <header>
+                <!-- Top Bar -->
+                <div class="top-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span7 hidden-phone">
+                                <!-- Menu Top -->
+                                <ul class="menu-top unstyled inline">
+                                    <li><a href="mailto:cawa123@mail.ru">cawa123@mail.ru</a></li>
+                                </ul>
+                                <!-- End Menu Top -->
+                            </div>
+                            <div class="span5">
+                                <!-- Access -->
+                                <ul class="access unstyled">
+                                    <li class="register">Not have account? <a href="login.html">Sign Up</a></li>
+                                    <li class="login-area"><a href="login.html"><i class="icon-user"></i> Login</a>
+                                        <div class="form">
+                                            <form action="#">
+                                                <div class="control-group">
+                                                    <label class="control-label" for="inputE-mail">E-mail</label>
+                                                    <div class="controls">
+                                                        <div class="input-prepend">
+                                                            <span class="add-on"><i class="icon-envelope"></i></span>
+                                                            <input class="input-medium" type="text" id="inputE-mail" placeholder="Email address">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="inputPassword">Password</label>
+                                                    <div class="controls">
+                                                        <div class="input-prepend">
+                                                            <span class="add-on"><i class="icon-key"></i></span>
+                                                            <input class="input-medium" type="password" id="inputPassword" placeholder="Password">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        <label class="checkbox">
+                                                            <input type="checkbox"> Remember me
+                                                        </label>
+                                                        <div class="pull-left">
+                                                            <a href="#" class="link"><i class="icon-exclamation-sign"></i> Lost password?</a>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <button type="submit" class="btn">Sign in</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- End Access -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Top Bar -->
+                <!-- Header -->
+                <div class="header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span4">
+                                <!-- Logo -->
+                                <div class="logo">
+                                    <a href="index-2.html"><img id="logo" src="images/logos/logo_default.png" alt="City Nightlife"></a>
+                                    <h2 class="hide-text">City Nightlife - Entertainment, Cities Guide and Promotions</h2>
+                                </div>
+                                <!-- End Logo -->
+                            </div>
+                            <div class="span8">
+                                <div class="pull-right">
+                                    <!-- Ad-728 -->
+                                    <div class="ad-728 hidden-phone">
+                                        <div class="image">
+                                            <a href="#"><img id="ad-728" src="images/banners/728x90_default.png" alt="Advertising" /></a>
+                                        </div>
+                                        <div class="advertising"></div>
+                                    </div>
+                                    <!-- End Ad-728 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Header -->
+                <!-- Navigation -->
+                <nav class="navigation lsteel-blue" id="nav">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+                            <?php
+                                $this->navigation('Navigation')->menu()->setPartial('partials/headerMenu.phtml');
+                                echo $this->navigation('Navigation')->menu()->render();
+                                ?>   
+                               
+                           
+                                <div class="pull-right">
+								<div id="language" class="language visible-desktop">
+									<a href="#" class="current"><i class="icon-globe"></i> <span>English</span> <i class="icon-angle-down"></i></a>
+									<div class="language-selector">
+										<div class="page-header">
+											<h5><i class="icon-globe"></i> Select your language <span class="pull-right"><a href="#" class="close"><i class="icon-remove-sign"></i></a></span></h5>
+										</div>
+											<li class="select"><a href="#" data-language="English"><img src="images/flags/us.png" alt=""> English</a></li>
+											<li><a href="#" data-language="Espanol"><img src="images/flags/es.png" alt=""> Espanol</a></li>
+											<li><a href="#" data-language="???????"><img src="images/flags/sa.png" alt=""> ???????</a></li>
+											<li><a href="#" data-language="Deutsch"><img src="images/flags/de.png" alt=""> Deutsch</a></li>
+											<li><a href="#" data-language="Nederlands"><img src="images/flags/lu.png" alt=""> Nederlands</a></li>
+											<li><a href="#" data-language="Italiano"><img src="images/flags/ie.png" alt=""> Italiano</a></li>
+											<li><a href="#" data-language="Portugues"><img src="images/flags/br.png" alt=""> Portugues</a></li>
+											<li><a href="#" data-language="Bahasa"><img src="images/flags/lr.png" alt=""> Bahasa</a></li>
+											<li><a href="#" data-language="Turkce"><img src="images/flags/tr.png" alt=""> Turkce</a></li>
+											<li><a href="#" data-language="????"><img src="images/flags/cn.png" alt=""> ????</a></li>
+											<li><a href="#" data-language="Francais"><img src="images/flags/gf.png" alt=""> Francais</a></li>
+											<li><a href="#" data-language="???"><img src="images/flags/jp.png" alt=""> ???</a></li>
+										<hr>
+										<p><a href="#">Help translate City Nightlife into your language</a></p>
+									</div>
+							
+								</div>
+							</div>
+                                <!-- <div class="pull-right">
+                                        <div class="language hidden-phone">
+                                                <ul class="lang-inline">
+                                                        <li class="lang-active">
+                                                                <a href="#"><img src="images/en.png" alt="" data-toggle="tooltip" title="English" /></a>
+                                                        </li>
+                                                        <li>
+                                                                <a href="#"><img src="images/es.png" alt="" data-toggle="tooltip" title="Espanol" /></a>
+                                                        </li>
+                                                        <li>
+                                                                <a href="#"><img src="images/br.png" alt="" data-toggle="tooltip" title="Portugues" /></a>
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navigation -->
+                <div class="overall">
+                    <div class="inner">
+                        <div class="shadow-top"></div>
+                        <div class="shadow-bottom"></div>
+                        <!-- Revolution Slider -->
+                        <div class="fullwidthbanner-container">
+                            <div class="fullwidthbanner">
+                                <ul class="unstyled">
+                                    <!-- Slide 01 -->
+                                    <li data-transition="fade" data-slotamount="1">
+                                        <img src="images/sliders/revolution/01/bg.jpg" alt=""/>
+                                        <div class="caption randomrotate"
+                                             data-x="-36"
+                                             data-y="220"
+                                             data-speed="500"
+                                             data-start="100"
+                                             data-easing="easeOutExpo">
+                                            <a href="#" target="_blank"><img src="images/sliders/revolution/01/slide5.png" alt=""/></a>
+                                        </div>
+                                        <div class="caption randomrotate"
+                                             data-x="146"
+                                             data-y="180"
+                                             data-speed="500"
+                                             data-start="300"
+                                             data-easing="easeOutExpo">
+                                            <a href="#" target="_blank"><img src="images/sliders/revolution/01/slide4.png" alt=""/></a>
+                                        </div>
+                                        <div class="caption randomrotate"
+                                             data-x="692"
+                                             data-y="220"
+                                             data-speed="500"
+                                             data-start="100"
+                                             data-easing="easeOutExpo">
+                                            <a href="#" target="_blank"><img src="images/sliders/revolution/01/slide3.png" alt=""/></a>
+                                        </div>
+                                        <div class="caption randomrotate"
+                                             data-x="510"
+                                             data-y="180"
+                                             data-speed="500"
+                                             data-start="300"
+                                             data-easing="easeOutExpo">
+                                            <a href="#" target="_blank"><img src="images/sliders/revolution/01/slide2.png" alt=""/></a>
+                                        </div>
+                                        <div class="caption randomrotate"
+                                             data-x="center"
+                                             data-y="140"
+                                             data-speed="500"
+                                             data-start="600"
+                                             data-easing="easeOutExpo">
+                                            <a href="#" target="_blank"><img src="images/sliders/revolution/01/slide1.png" alt=""/></a>
+                                        </div>
+                                        <div class="caption big_white lfl"
+                                             data-x="center"
+                                             data-y="50"
+                                             data-speed="900"
+                                             data-start="500"
+                                             data-easing="easeOutExpo">
+                                            <div>City Nightlife Responsive Multi-Purpose Theme</div>
+                                        </div>
+                                        <div class="caption medium_grey lfr"
+                                             data-x="center"
+                                             data-y="100"
+                                             data-speed="900"
+                                             data-start="300"
+                                             data-easing="easeOutExpo">
+                                            <div>For Corporate, Business, Magazine, Portfolio, Personal and so on…</div>
+                                        </div>
+                                    </li>
+                                    <!-- End Slide 01 -->
+                                    <!-- Slide 02 -->
+                                    <li data-transition="random" data-slotamount="7" data-masterspeed="300">
+                                        <img src="images/sliders/revolution/02/bg.jpg" alt="" />
+                                        <div class="caption fl-title lft"
+                                             data-x="0"
+                                             data-y="50"
+                                             data-speed="1800"
+                                             data-start="500"
+                                             data-easing="easeInOutElastic">
+                                            <div style="width: 75%; position: relative;">Responsive Design and<br> <span style="color:#62BD5B">CrossBrowser</span> Theme</div>
+                                        </div>
+                                        <div class="caption lfr"
+                                             data-x="530"
+                                             data-y="40"
+                                             data-speed="800"
+                                             data-start="800"
+                                             data-easing="easeOutExpo">
+                                            <img src="images/sliders/revolution/02/monitor.png" alt="" />
+                                        </div>
+                                        <div class="caption lfr"
+                                             data-x="720"
+                                             data-y="187"
+                                             data-speed="1100"
+                                             data-start="1100"
+                                             data-easing="easeOutBack">
+                                            <img src="images/sliders/revolution/02/macbook.png" alt="" />
+                                        </div>
+                                        <div class="caption lft"
+                                             data-x="440"
+                                             data-y="165"
+                                             data-speed="1100"
+                                             data-start="1400"
+                                             data-easing="easeOutExpo">
+                                            <img src="images/sliders/revolution/02/ipad.png" alt="" />
+                                        </div>
+                                        <div class="caption lft"
+                                             data-x="560"
+                                             data-y="255"
+                                             data-speed="1400"
+                                             data-start="1700"
+                                             data-easing="easeOutExpo">
+                                            <img src="images/sliders/revolution/02/iphone.png" alt="" />
+                                        </div>
+                                        <div class="caption small_text lfb"
+                                             data-x="0"
+                                             data-y="130"
+                                             data-speed="1100"
+                                             data-start="2000"
+                                             data-easing="easeOutExpo">
+                                            <div style="width: 50%; position: relative;">Don't matter what is your device to access our site, it will be able to<br> adapt to your resolution and show all information. And more, the<br> City Nightlife is CrossBrowser, compatible with all major browsers.</div>
+                                        </div>
+                                        <div class="caption lfb"
+                                             data-x="0"
+                                             data-y="210"
+                                             data-speed="2200"
+                                             data-start="2300"
+                                             data-easing="easeInOutQuint">
+                                            <a href="why.html" class="btn-solid btn-solid-large">Read More</a>
+                                        </div>
+                                    </li>
+                                    <!-- End Slide 02 -->
+                                    <!-- Slide 03 -->
+                                    <li data-transition="random" data-slotamount="7" data-masterspeed="300">
+                                        <img src="images/sliders/revolution/03/bg.jpg" alt="" />
+                                        <div class="caption very_large_text lft"
+                                             data-x="0"
+                                             data-y="50"
+                                             data-speed="1500"
+                                             data-start="1100"
+                                             data-easing="easeOutExpo">HTML5 &amp; CSS3</div>
+                                        <div class="caption fl-title lft"
+                                             data-x="0"
+                                             data-y="110"
+                                             data-speed="1500"
+                                             data-start="1500"
+                                             data-easing="easeOutExpo">
+                                            <div>Based on Twitter Bootstrap</div>
+                                        </div>
+                                        <div class="caption small_text lfb"
+                                             data-x="0"
+                                             data-y="165"
+                                             data-speed="1200"
+                                             data-start="2300"
+                                             data-easing="easeOutExpo">
+                                            <div style="width: 50%; position: relative;">With HTML5 we can do more dynamic website, makes creating accessible sites<br>
+                                                easier, make ours videos and audio truly accessible, better interactions.<br><br>
+                                                Easier and with more features, your site with CSS3 will be much more<br>
+                                                attractive and lightweight.</div>
+                                        </div>
+                                        <div class="caption lfb"
+                                             data-x="0"
+                                             data-y="280"
+                                             data-speed="1200"
+                                             data-start="2500"
+                                             data-easing="easeInOutExpo">
+                                            <a href="#" class="btn-solid">Buy Now</a>
+                                        </div>
+                                        <div class="caption lft"
+                                             data-x="550"
+                                             data-y="50"
+                                             data-speed="800"
+                                             data-start="1400"
+                                             data-easing="easeInOutQuint">
+                                            <img src="images/sliders/revolution/03/html5.png" alt="" />
+                                        </div>
+                                        <div class="caption lfr"
+                                             data-x="720"
+                                             data-y="100"
+                                             data-speed="800"
+                                             data-start="1800"
+                                             data-easing="easeInOutQuint">
+                                            <img src="images/sliders/revolution/03/css3.png" alt="" />
+                                        </div>
+                                    </li>
+                                    <!-- End Slide 03 -->
+                                    <!-- Slide 04 -->
+                                    <li data-transition="slidehorizontal" data-slotamount="7" data-masterspeed="300">
+                                        <img src="images/sliders/revolution/04/bg.png" alt="" style="background-color: #2a2a2a" />
+                                        <div class="caption lfb"
+                                             data-x="440"
+                                             data-y="40"
+                                             data-speed="1000"
+                                             data-start="800"
+                                             data-easing="easeOutExpo">
+                                        </div>
+                                        <div class="caption very_big_white lfb"
+                                             data-x="-4"
+                                             data-y="50"
+                                             data-speed="1000"
+                                             data-start="1100"
+                                             data-easing="easeOutExpo">
+                                            <div>Play Youtube &amp;<br>Vimeo Videos</div>
+                                        </div>
+                                        <div class="caption medium_text lfr"
+                                             data-x="0"
+                                             data-y="160"
+                                             data-speed="1000"
+                                             data-start="1400"
+                                             data-easing="easeOutExpo">
+                                            <div>Responsive video support!</div>
+                                        </div>
+                                        <div class="caption small_text lfr"
+                                             data-x="0"
+                                             data-y="195"
+                                             data-speed="1000"
+                                             data-start="1700"
+                                             data-easing="easeOutExpo">
+                                            <div>With City Nightlife you can show your corporate video production,<br>
+                                                merchandising video, magazine fashion video or prefered<br>
+                                                music video with featured.</div>
+                                        </div>
+                                        <div class="caption lfb"
+                                             data-x="0"
+                                             data-y="280"
+                                             data-speed="2500"
+                                             data-start="2000"
+                                             data-easing="easeInOutQuint">
+                                            <a href="#" class="btn-solid btn-solid-large">Purchase Now</a>
+                                        </div>
+                                    </li>
+                                    <!-- End Slide 04 -->
+                                </ul>
+                                <div class="tp-bannertimer tp-bottom"></div>
+                            </div>
+                        </div>
+                        <!-- End Revolution Slider -->
+                    </div>
+                </div>
+                <!-- Search -->
+                <div class="search">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span6">
+                                <!-- Breadcrumb -->
+                                <?php echo $this->partial('/partials/breadcrumb'); ?>
+                                <!-- End Breadcrumb -->
+                            </div>
+                            <div class="span6">
+                                <div class="pull-right">
+                                    <!-- Search -->
+                                    <form action="http://themes.atomtech.com.br/" method="post" class="form-inline">
+                                        <div class="input-append">
+                                            <input name="searchword" maxlength="20" class="inputbox input-xlarge" type="text" size="20" value="" placeholder="What are you looking for?" />
+                                            <button class="btn" data-toggle="tooltip" title="Random Search"><i class="icon-random"></i></button>
+                                            <button class="btn" data-toggle="tooltip" title="Advanced Search"><i class="icon-tasks"></i></button>
+                                            <button class="btn"><i class="icon-search"></i> <span class="hidden-phone">Search</span></button>
+                                        </div>
+                                    </form>
+                                    <!-- End Search -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Search -->
+            </header>
