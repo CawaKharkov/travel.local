@@ -10,7 +10,7 @@
   <a class="btn">Browse</a>
 
 */
-$(function() {
+jQuery(function ($) {
 
 $('input[type=file]').each(function(i,elem){
 

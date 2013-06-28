@@ -1,19 +1,27 @@
 <?php
 //$this->container->removePage(4);
-$this->container->removePage(5);
-$p = $this->container->getPages();
+/* $this->container->removePage(5);
+  $p = $this->container->getPages();
 
-//die();
+  //die();
+  ?>
+
+  <ul class="breadcrumb">
+  <li class="active"><span class="divider"><a href="index-2.html" data-toggle="tooltip" title="Go to home"><i class="icon-home"></i></a></span></li>
+  <?php foreach($p as $page) : ?>
+  <li<?php echo $page->isActive() ? ' class="active"' : '' ?>>
+  <?php if (!$page->isActive()) : ?>
+  <?php echo $this->navigation()->menu()->htmlify($page) . PHP_EOL .'<span class="divider"></span>'; ?>
+  <?php else : ?>
+  <?php echo $page->label ?><span class="divider"></span>
+  <?php endif ?>
+  </li>
+  <?php endforeach ?>
+  </ul>
+ */
 ?>
 
-<ul class="breadcrumb">
-    <?php foreach($p as $page) : ?>
-    <li<?php echo $page->isActive() ? ' class="active"' : '' ?>>
-    <?php if (!$page->isActive()) : ?>
-        <?php echo $this->navigation()->menu()->htmlify($page) . PHP_EOL .'<span class="divider">/</span>'; ?>
-    <?php else : ?>
-        <p><?php echo $page->label ?><span class="divider">/</span></p>
-    <?php endif ?>
-    </li>
-    <?php endforeach ?>
+<ul class="breadcrumb hidden-phone">
+    <li><span class="divider"><a href="<?php echo $this->url('application'); ?>" data-toggle="tooltip" title="Go to home">
+                <i class="icon-home"></i>Home</a></span></li>
 </ul>

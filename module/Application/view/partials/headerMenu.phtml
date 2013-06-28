@@ -1,5 +1,6 @@
 <ul class="menu fading l_tinynav1">
     <?php
+    $output = '';
     foreach ($this->container as $page) {
         switch($page->id){
             case 'login':
@@ -18,42 +19,11 @@
                 $output .= '<li><a href="' . $page->getHref() . '" class="' . $page->getClass() . '"><i class="icon-user"></i>' . $page->getLabel() . '</a></li>';                
             break;         
             case 'news':
-                $output .= '<li><a href="' . $page->getHref() . '" class="' . $page->getClass() . '"><i class="icon-globe"></i>' . $page->getLabel() . '</a></li>';                
+                $output .= '<li><a href="' . $page->getHref() . '" class="' . $page->getClass() . '"><i class="icon-globe"></i>' . $page->getLabel() . '</a>';                
+                $output .= '<ul><li><a>test</a></li></ul></li>';
             break;         
         }
     }
     echo $output;
     ?>
 </ul>
-        <!-- Mega Menu -->
-        <!--div class="cols3">
-            <div class="col3">
-                <h4>We have prepared some portals suggestions for you!</h4>
-            </div>
-            <div class="col1">
-                <h5>Content Portal</h5>
-                <ol>
-                    <li><a href="news.html"><i class="icon-bullhorn"></i> News Portal</a></li>
-                    <li><a href="jobs.html"><i class="icon-briefcase"></i> Jobs Portal</a></li>
-                    <li><a href="recipes.html"><i class="icon-food"></i> Recipes Portal</a></li>
-                    <li><a href="education.html"><i class="icon-lightbulb"></i> Education Portal</a></li>
-                    <li><a href="personal.html"><i class="icon-user"></i> Personal Portal</a></li>
-                </ol>
-            </div>
-            <div class="col1">
-                <h5>Multimidia Portal</h5>
-                <ol>
-                    <li><a href="music.html"><i class="icon-music"></i> Music Portal</a></li>
-                    <li><a href="video.html"><i class="icon-facetime-video"></i> Video Portal</a></li>
-                    <li><a href="games.html"><i class="icon-dashboard"></i> Games Portal</a></li>
-                    <li><a href="sports.html"><i class="icon-trophy"></i> Sports Portal</a></li>
-                    <li><a href="events.html"><i class="icon-circle"></i> Events</a></li>
-                </ol>
-            </div>
-            <div class="col1">
-                <h5>Do more!</h5>
-                <p>This <a href="#">Mega Menu</a> can handle everything.</p>
-                <p>Lists, paragraphs, forms, images, tables...</p>
-            </div>
-        </div>
-        <!-- End Mega Menu -->

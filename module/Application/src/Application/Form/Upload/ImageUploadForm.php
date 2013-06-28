@@ -16,6 +16,7 @@ use Zend\Form\Form;
 use Zend\Form\Element;
 use Zend\InputFilter;
 use caUser\Exception\WrongArgumentException;
+use caUser\Exception\IOException;
 
 class ImageUploadForm extends Form
 {
@@ -23,10 +24,11 @@ class ImageUploadForm extends Form
     public $user_id;
 
 
-    public function __construct($name = null, $options = array())
+    public function __construct($name = null, $options = array(),$userId)
     {
         parent::__construct($name, $options);
         $this->addElements();
+        $this->setUserId($userId);
         $this->addInputFilter();
     }
 
@@ -60,19 +62,19 @@ class ImageUploadForm extends Form
         
         
          $fileInput->getValidatorChain()
-            ->attachByName('filesize',      array('max' => 204800))
+            ->attachByName('filesize',      array('max' => 2004800))
             //->attachByName('filemimetype',  array('mimeType' => 'image/png,image/jpg,image/jpeg'))
-            ->attachByName('fileimagesize', array('maxWidth' => 2000, 'maxHeight' => 2000));
+            ->attachByName('fileimagesize', array('maxWidth' => 4000, 'maxHeight' => 4000));
 
         // All files will be renamed, i.e.:
         //   ./data/tmpuploads/avatar_4b3403665fea6.png,
         //   ./data/tmpuploads/avatar_5c45147660fb7.png
+         
+        $userDir = $this->chechkUserDir(); 
         $fileInput->getFilterChain()->attachByName(
             'filerenameupload',
             array(
-                'target' => BASE_DIR . DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.
-                                        'data'.DIRECTORY_SEPARATOR.'images_upload'.
-                                        DIRECTORY_SEPARATOR.'image.jpg',
+                'target' => $userDir . 'image.jpg',
                 'randomize' => true,
             )
         );
@@ -82,12 +84,26 @@ class ImageUploadForm extends Form
         $this->setInputFilter($inputFilter);
     }
 
-    public function setUserId($userId)
+    protected function setUserId($userId)
     {
         if(is_numeric($userId) && !empty($userId)){
             $this->user_id = $userId;
         }else{
             throw new WrongArgumentException('ImageUpload: wrong user id');
+        }
+    }
+    
+    public function chechkUserDir() 
+    {
+        $path = BASE_DIR . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR .
+                'data' . DIRECTORY_SEPARATOR . 'images_upload' .
+                DIRECTORY_SEPARATOR . $this->user_id .DIRECTORY_SEPARATOR;
+        if (is_dir($path)) {
+            return $path;
+        } else {
+            if (mkdir($path) == false){
+                throw new IOException('Can not create upload directory for user, userId: '.$this->user_id);
+            }
         }
     }
 }

@@ -4,8 +4,7 @@
         <meta charset="utf-8">
         <?php echo $this->headTitle() ?>
         <?php echo $this->headMeta() ?>
-
-        <?php echo $this->partial('partials/headscript'); ?>
+        <?php echo $this->headLink() ?>
     </head>
     <body class="wide">
         <div id="fb-root"></div>
@@ -30,6 +29,7 @@
                 <?php echo $this->partial('/partials/footer'); ?>
             </div>
             <a href="#" class="scroll-top"><i class="icon-chevron-up"></i></a>
-            <?php echo $this->partial('partials/footerscript'); ?>
+              <?php echo $this->headScript() ?>
+            <?php //echo $this->partial('partials/footerscript'); ?>
     </body>
 </html>

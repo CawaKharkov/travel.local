@@ -30,7 +30,6 @@ class Module implements AutoloaderProviderInterface
                     return $viewHelper;
                 });
 
-
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         $eventManager->attach('render', array($this, 'initView'));
@@ -62,61 +61,49 @@ class Module implements AutoloaderProviderInterface
         
         $helperManager->get('headtitle')->set('TravelAround '. 'Клуб путешественников')->setSeparator(' - ')->setAutoEscape(false);
         
-        /*
         $helperManager->get('headlink')
-                        ->appendStylesheet('/css/bootstrap.css')
-                        ->appendStylesheet('/css/bootstrap-responsive.css')
-                        ->appendStylesheet('/css/main.css')
-                        ->appendStylesheet('/js-plugin/pretty-photo/css/prettyPhoto.css')
-                        ->appendStylesheet('/js-plugin/rs-plugin/css/settings.css')
-                        ->appendStylesheet('/js-plugin/hoverdir/css/style.css')
-                        ->appendStylesheet('/font-icons/custom-icons/css/custom-icons.css')
-                        ->appendStylesheet('/font-icons/custom-icons/css/custom-icons-ie7.css')
-                        ->appendStylesheet('/css/layout.css')
-                        ->appendStylesheet('/css/light.css');
-                        //->appendStylesheet('/css/colors.css');
+                        ->appendStylesheet('//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css', '')
+                        ->appendStylesheet('/css/font-awesome.min.css', '') 
+                        ->appendStylesheet('/css/font-awesome-corp.css', '') 
+                        ->appendStylesheet('/css/font-awesome-ext.css', '') 
+                        ->appendStylesheet('/css/font-awesome-social.css', '') 
+                        ->appendStylesheet('/css/menu/core.css', '') 
+                        ->appendStylesheet('/css/menu/styles/lsteel-blue.css', '') 
+                        ->appendStylesheet('/css/menu/effects/fading.css', 'media', array('conditional' => 'gt IE 9')) 
+                        ->appendStylesheet('/css/fullwidth.css') 
+                        ->appendStylesheet('/css/rs-plugin/css/settings.css') 
+                        ->appendStylesheet('/css/captions.css', '') 
+                        ->appendStylesheet('/css/animate.min.css', '') 
+                        ->appendStylesheet('/css/prettify.css', '') 
+                        ->appendStylesheet('/css/docs.css', '') 
+                        ->appendStylesheet('/css/prettyPhoto.css', '') 
+                        ->appendStylesheet('/css/main.css', ''); 
         
-        
-        $helperManager->get('headscript')->appendFile('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
-                                         ->appendFile('//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js')
-                                         ->appendFile('/js/bootstrap.js')
-                                         ->appendFile('/js/main.js')
-                                         ->appendFile('/js/admin.js')
-                                         ->appendFile('/js/custom.js')
-                                         ->appendFile('/js/jquery.form.js')
-                                         ->appendFile('/js/thirdparty/modernizr-2.6.1.min.js')
-                                         ->appendFile('/js/thirdparty/bootstrap.file-input.js')
-                                         ->appendFile('/js-plugin/respond/respond.min.js')
-                                         ->appendFile('/js-plugin/easing/jquery.easing.1.3.js')
-                                         ->appendFile('/js-plugin/pretty-photo/js/jquery.prettyPhoto.js')
-                                         ->appendFile('/js-plugin/seaofclouds-tweet/tweet/jquery.tweet.js')
-                                         ->appendFile('/js-plugin/hoverdir/jquery.hoverdir.js')
-                                         ->appendFile('/js-plugin/rs-plugin/js/jquery.themepunch.plugins.min.js')
-                                         ->appendFile('/js-plugin/rs-plugin/js/jquery.themepunch.revolution.min.js');*/
-        $helperManager->get('headlink')
-                        ->appendStylesheet('/css/bootstrap.css')
-                        ->appendStylesheet('/css/bootstrap-responsive.css')
-                        ->appendStylesheet('/css/font-awesome.min.css')
-                        ->appendStylesheet('/css/font-awesome-corp.css')
-                        ->appendStylesheet('/css/font-awesome-ext.css')
-                        ->appendStylesheet('/css/font-awesome-social.css')
-                        ->appendStylesheet('/css/menu/core.css')
-                        ->appendStylesheet('/css/menu/styles/lsteel-blue.css')
-                        ->appendStylesheet('/css/menu/effects/slide.css')
-                        ->appendStylesheet('/css/fullwidth.css')
-                        ->appendStylesheet('/css/rs-plugin/css/settings.css')
-                        ->appendStylesheet('/css/captions.css')
-                        ->appendStylesheet('/css/animate.min.css')
-                        ->appendStylesheet('/css/prettify.css')
-                        ->appendStylesheet('/css/docs.css')
-                        ->appendStylesheet('/css/prettyPhoto.css')
-                        ->appendStylesheet('/css/main.css')
-                        ->appendStylesheet('/css/skins/default.css');
-
-        $helperManager->get('headscript')->appendFile('/js/vendor/modernizr.min.js')
-                                         ->appendFile('/js/vendor/jquery.min.js')
-                                         ->appendFile('/js/vendor/bootstrap.min.js');
-                                        // ->appendFile('/js/vendor/retina.js');
+        $helperManager->get('headscript')
+                                      ->appendFile('/js/vendor/selectivizr.min.js', 'text/javascript', array('conditional' => '(gte IE 6)&(lte IE 8)',))
+                                      
+                                      ->appendFile('/http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js', 
+                                                    'text/javascript', array('conditional' => 'lt IE 9',))
+                                      ->appendFile('/js/vendor/modernizr.min.js') 
+                                      ->appendFile('//code.jquery.com/jquery-1.10.1.min.js') 
+                                      ->appendFile('//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js') 
+                                      ->appendFile('/js/vendor/jquery.easing.min.js') 
+                                      ->appendFile('/css/rs-plugin/js/jquery.themepunch.plugins.min.js') 
+                                      ->appendFile('/css/rs-plugin/js/jquery.themepunch.revolution.min.js') 
+                                      ->appendFile('/js/vendor/jquery.jcarousel.min.js')
+                                      ->appendFile('/js/vendor/jquery.flexslider.min.js') 
+                                      ->appendFile('/js/vendor/jquery.parallax.min.js') 
+                                      ->appendFile('/js/vendor/jquery.waypoints.min.js') 
+                                      ->appendFile('/js/effects.js') 
+                                      ->appendFile('/js/vendor/jquery.prettyPhoto.min.js') 
+                                      ->appendFile('/js/vendor/jquery.cookie.min.js') 
+                                      ->appendFile('/js/plugins.js') 
+                                      ->appendFile('/js/main.js') 
+                                      ->appendFile('/js/thirdparty/bootstrap.file-input.js') 
+                                      ->appendFile('/js/vendor/jquery.placeholder.min.js', 'text/javascript', 
+                                                                        array('conditional' => 'lte IE 9',)) 
+                                      ->appendFile('/js/vendor/jquery.menu.min.js', 'text/javascript',
+                                                                        array('conditional' => 'lte IE 9',));
         
     }
     

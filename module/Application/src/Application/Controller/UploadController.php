@@ -15,6 +15,7 @@ namespace Application\Controller;
 
 use Zend\View\Model\ViewModel;
 use Application\Form\Upload\ImageUploadForm;
+use caUser\Service\UserService;
 
 class UploadController extends AbstractController
 {
@@ -27,8 +28,10 @@ class UploadController extends AbstractController
     
     public function uploadAction()
     {
-        $form = new ImageUploadForm('upload-form');
-        //$form->setUserId('1a');
+        $userService = new UserService($this->getServiceLocator());
+        
+        $form = new ImageUploadForm('upload-form',null,$userService->getCurrentUser()->getId());
+        
         $tempFile = null;
         
         $prg = $this->fileprg($form,'upload',true);
